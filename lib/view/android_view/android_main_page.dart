@@ -9,7 +9,7 @@ class AndroidMainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Text("Android MainPage...."),
+      body: Center(child: Text("Android MainPage....",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
     );
   }
 }

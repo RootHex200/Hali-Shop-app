@@ -8,3 +8,8 @@
 05. Dio package. 
 06. Flutter - 3.3.4, dart 2.18 
 07. Git Branch (main, dev)
+
+
+Flutter Icons Name:
+	Bottom nav bar Icons - home, grid_view, storefront, shopping cart, person
+	Home page top - icon - menu, search
