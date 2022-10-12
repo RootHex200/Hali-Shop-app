@@ -1,0 +1,10 @@
+
+
+
+01. architecture - MVVC 
+02. State managment - riverpord 
+03. API - dummyjson & fakestoreapi (https://dummyjson.com/, https://fakestoreapi.com/)
+04. Clone - monarch mart e-commerce app. 
+05. Dio package. 
+06. Flutter - 3.3.4, dart 2.18 
+07. Git Branch (main, dev)
