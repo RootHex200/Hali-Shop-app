@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/view/android_view/android_main_page.dart';
-import 'package:monarch_mart/view/ios_view/ios_main_page.dart';
+
 import 'dart:io' show Platform;
+
+import 'view/ios_view/ios_main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,11 +19,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         scaffoldBackgroundColor: Appcolors.scaffoldBGColor,
-        primaryColor: Appcolors.primaryColor
+        primaryColor: Appcolors.primaryColor,
+        fontFamily: "Roboto"
       ),
 
       //check which platfrom app start 
       home: Platform.isAndroid?const  AndroidMainPage():const IosMainPage(),
+
     );
   }
 }
