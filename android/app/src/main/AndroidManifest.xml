@@ -3,7 +3,7 @@
    <application
         android:label="monarch_mart"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/monarch_mart_logo">
         <activity
             android:name=".MainActivity"
             android:exported="true"
