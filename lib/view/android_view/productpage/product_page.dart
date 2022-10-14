@@ -13,8 +13,11 @@ class ProductPage extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: const [
+            //search product 
             SearchaProduct(),
+            //product filter 
             ProductFilterSort(),
+            //all product
             Expanded(child: SingleChildScrollView(child: AllProducts()))
           ],
         ),

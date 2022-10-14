@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monarch_mart/utils/colors.dart';
-import 'package:monarch_mart/view/android_view/android_main_page.dart';
-import 'package:monarch_mart/view/android_view/cardpage/card_page.dart';
 import 'package:monarch_mart/view/android_view/homepage/home_page.dart';
-import 'package:monarch_mart/view/android_view/productpage/product_page.dart';
-
 import 'dart:io' show Platform;
 
 import 'package:monarch_mart/view/ios_view/ios_main_page.dart';

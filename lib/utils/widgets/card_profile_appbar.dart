@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class CardProfileAppBar extends StatelessWidget {
   final Widget title;
   const CardProfileAppBar({super.key, required this.title});
 
-  ///this app bar for card & profile page Top possition. 
+  ///this app bar for card & profile page Top possition.
 
   @override
   Widget build(BuildContext context) {
@@ -23,5 +21,3 @@ class CardProfileAppBar extends StatelessWidget {
     );
   }
 }
-
- 
