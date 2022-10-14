@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
-import 'package:monarch_mart/view/android_view/homepage/homecomponent/all_product.dart';
+import 'package:monarch_mart/utils/widgets/all_product.dart';
 import 'package:monarch_mart/view/android_view/homepage/homecomponent/carousel.dart';
 import 'package:monarch_mart/view/android_view/homepage/homecomponent/discount_banner.dart';
 import 'package:monarch_mart/view/android_view/homepage/homecomponent/option_list.dart';
