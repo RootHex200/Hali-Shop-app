@@ -15,8 +15,8 @@ class VerticalSpacer extends StatelessWidget {
 }
 
 class HorizontalSpacer extends StatelessWidget {
-  final double width;
-  const HorizontalSpacer({super.key,required this.width});
+   final double width;
+  const HorizontalSpacer({super.key, required this.width});
 
   @override
   Widget build(BuildContext context) {

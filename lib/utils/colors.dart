@@ -11,7 +11,7 @@ class Appcolors{
   static const Color homeTopCategorycontainerBG =  Color(0xfffce5de);
   static const Color addressCancelbutton = Colors.red;
   static const Color addressSavebutton = Colors.green;
-  static const Color backButtontColorBlack = Colors.black45;
+  static const Color backButtontBlack = Colors.black45;
   static const Color textColor1 =  Color.fromRGBO(255, 215, 0, 1);
   static const Color textColor2 = Colors.blue;
   static const Color primaryTextColorBold =  Color(0xff1B1B28);
