@@ -1,4 +1,9 @@
 
+**flutter build apk --analyze-size --target-platform=android-arm64**
+
+Target:
+		1.mipmap image compressed  bytes to hight 1.5kb
+
 
 
 01. architecture - MVVC 
