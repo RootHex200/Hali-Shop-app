@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monarch_mart/utils/colors.dart';
-import 'package:monarch_mart/view/android_view/homepage/home_page.dart';
-import 'dart:io' show Platform;
+//import 'package:monarch_mart/view/android_view/homepage/home_page.dart';
 
-import 'package:monarch_mart/view/ios_view/ios_main_page.dart';
+
+
+import 'package:monarch_mart/view/splash_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 //root widget of app
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: Platform.isAndroid ? const AndroidHomePage() : const IosMainPage(),
+      child: const SplashScreen()
     );
   }
 }

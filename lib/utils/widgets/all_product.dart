@@ -2,7 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:monarch_mart/utils/colors.dart';
 
-import '../../../../utils/widgets/spaceer.dart';
+import 'spaceer.dart';
+
+//this widget Common widget of AndroidHomepage and AndroidProductPage
+
 
 class AllProducts extends StatelessWidget {
   const AllProducts({super.key});
