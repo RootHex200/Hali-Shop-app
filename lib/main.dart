@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monarch_mart/utils/colors.dart';
-//import 'package:monarch_mart/view/android_view/homepage/home_page.dart';
 
 
 
@@ -28,8 +27,6 @@ class MyApp extends StatelessWidget {
             primaryColor: Appcolors.primaryColor,
             fontFamily: "Roboto",
           ),
-
-          // home: Platform.isAndroid?const  AndroidMainPage():const IosMainPage(),
           home: child,
         );
       },
