@@ -33,6 +33,7 @@ class AndroidMainPage extends StatelessWidget {
               backgroundColor: Colors.white,
               unselectedItemColor: Colors.grey,
               selectedItemColor: Appcolors.primaryColor,
+              type: BottomNavigationBarType.fixed,
               onTap: (index) {
                 ref.read(bottomnaigationStateProvider.notifier).state = index;
               },

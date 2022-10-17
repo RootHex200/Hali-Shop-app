@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:monarch_mart/view_model/riverpod/checkVisibility_provider.dart';
 
 import '../../../utils/widgets/all_product.dart';
 import 'productcomponent/product_filter_sort.dart';
@@ -11,16 +13,31 @@ class AndroidProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: const [
-            //search product 
-            SearchaProduct(),
-            //product filter 
-            ProductFilterSort(),
-            //all product
-            Expanded(child: SingleChildScrollView(child: AllProducts()))
-          ],
-        ),
+        body: Stack(children: [
+          Column(
+            children: const [
+              SearchaProduct(),
+              ProductFilterSort(),
+              Expanded(child: SingleChildScrollView(child: AllProducts()))
+            ],
+          ),
+          Positioned(
+              top: 82,
+              right: 0,
+              child: Consumer(
+                builder: (context, ref, child) {
+                  final checkVisible = ref.watch(checkvisibilityStateProvider);
+                  return Visibility(
+                    visible: checkVisible,
+                    child: Container(
+                      color: Colors.red,
+                      width: 160,
+                      height: 200,
+                    ),
+                  );
+                },
+              ))
+        ]),
       ),
     );
   }
