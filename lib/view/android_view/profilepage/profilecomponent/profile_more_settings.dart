@@ -7,29 +7,27 @@ class ProfileMoreSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final moreSttings = ["Privacy Policy", "Return Policy", "Terms"];
+    // final moreSttings = ["Privacy Policy", "Return Policy", "Terms"];
     final moreSttingsURL = [
       {
         "name": "Privacy Policy",
         "url": "https://monarchmart.com/privacypolicy"
       },
-      {
-        "name": "Return Policy", 
-        "url": "https://monarchmart.com/returnpolicy"},
-      {
-        "name": "Terms", 
-        "url": "https://monarchmart.com/terms"},
+      {"name": "Return Policy", "url": "https://monarchmart.com/returnpolicy"},
+      {"name": "Terms", "url": "https://monarchmart.com/terms"},
     ];
     return ListView.builder(
-      itemCount: moreSttings.length,
+      itemCount: moreSttingsURL.length,
       shrinkWrap: true,
       primary: false,
       itemBuilder: ((context, index) {
         return InkWell(
           onTap: () {
-            print("Clicked $index");
+            print("Clicked ${moreSttingsURL[index]["url"]}");
             Navigator.push(
-                context, MaterialPageRoute(builder: ((context) => Webview(moreSttingsURL))));
+                context, MaterialPageRoute(builder: ((context) => 
+                Webview(url:moreSttingsURL[index]["url"].toString(), 
+                titile: moreSttingsURL[index]["name"].toString(),))));
           },
           child: ListTile(
             leading: CircleAvatar(
@@ -51,3 +49,11 @@ class ProfileMoreSettings extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+ 

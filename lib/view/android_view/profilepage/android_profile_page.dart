@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/string.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
+import 'package:monarch_mart/view/android_view/profilepage/login/login.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/profile_more_settings.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/profile_view.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/setting_option.dart';
@@ -41,17 +42,23 @@ class AndroidProfilePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             //main prfile view
-            ProfileView(),
-            VerticalSpacer(height: 10),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Login()));
+                },
+                child: const Text("login")),
+            const ProfileView(),
+            const VerticalSpacer(height: 10),
 
             //Setting option
-            SettingOption(),
+            const SettingOption(),
 
             //more settings text
 
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
                 AppString.moreSettings,
@@ -60,7 +67,7 @@ class AndroidProfilePage extends StatelessWidget {
             ),
 
             //more settings listtile
-            ProfileMoreSettings(),
+            const ProfileMoreSettings(),
           ],
         ),
       ),
