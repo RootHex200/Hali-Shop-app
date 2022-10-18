@@ -6,8 +6,7 @@ class SearchFiled extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _key = GlobalKey();
-    return Padding(
+     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: CupertinoSearchTextField(
         decoration: BoxDecoration(
