@@ -6,7 +6,7 @@ import 'package:monarch_mart/view/android_view/categorypage/android_categorypage
 import 'package:monarch_mart/view/android_view/homepage/android_home_page.dart';
 import 'package:monarch_mart/view/android_view/productpage/android_product_page.dart';
 import 'package:monarch_mart/view/android_view/profilepage/android_profile_page.dart';
-import 'package:monarch_mart/view_model/riverpod/bottomnavigation_provider.dart';
+import 'package:monarch_mart/view_model/simplehadler/bottomnavigation_provider.dart';
 
 List page = const [
   AndroidHomePage(),

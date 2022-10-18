@@ -3,6 +3,8 @@ import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/string.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/login.dart';
+import 'package:monarch_mart/view/android_view/profilepage/login/login_with_user_id.dart';
+import 'package:monarch_mart/view/android_view/profilepage/login/signup.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/profile_more_settings.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/profile_view.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/setting_option.dart';
@@ -50,6 +52,20 @@ class AndroidProfilePage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => const Login()));
                 },
                 child: const Text("login")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginWithUserID()));
+                },
+                child: const Text("login with user id")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Signup()));
+                },
+                child: const Text("sign up")),
             const ProfileView(),
             const VerticalSpacer(height: 10),
 

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
-import 'dart:io' show Platform;
-import 'package:monarch_mart/view/ios_view/ios_main_page.dart';
+
 
 import 'android_view/android_main_page.dart';
 
@@ -13,14 +12,17 @@ class SplashScreen extends HookWidget {
   Widget build(BuildContext context) {
     useEffect(() {
       Future.delayed(const Duration(seconds: 2), () {
-        if (Platform.isAndroid) {
-          Navigator.of(context).pushReplacement(
+        // if (Platform.isAndroid) {
+        //   Navigator.of(context).pushReplacement(
+        //       MaterialPageRoute(builder: (context) => const AndroidMainPage()));
+        // }
+        // if(Platform.isIOS){
+        //             Navigator.of(context).pushReplacement(
+        //       MaterialPageRoute(builder: (context) => const IosMainPage()));
+        // }
+                  Navigator.of(context).pushReplacement(
               MaterialPageRoute(builder: (context) => const AndroidMainPage()));
-        }
-        if(Platform.isIOS){
-                    Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const IosMainPage()));
-        }
+        
       });
       return null;
     }, []);

@@ -2,6 +2,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:monarch_mart/utils/colors.dart';
 
+List<String> categorydata = [
+  "smartphones",
+  "laptops",
+  "fragrances",
+  "skincare",
+  "groceries",
+  "home-decoration",
+  "furniture",
+  "tops",
+  "womens-dresses",
+  "womens-shoes",
+  "mens-shirts",
+  "mens-shoes",
+  "mens-watches",
+  "womens-watches",
+  "womens-bags",
+  "womens-jewellery",
+];
+
 class AndroidCategoryPage extends StatelessWidget {
   const AndroidCategoryPage({super.key});
 
@@ -16,9 +35,12 @@ class AndroidCategoryPage extends StatelessWidget {
               color: Colors.white,
             )),
         elevation: 0.0,
-        actions: const [
-          Padding(
-              padding: EdgeInsets.only(right: 20), child: Icon(Icons.search))
+        actions: [
+          InkWell(
+            onTap: () {},
+            child: const Padding(
+                padding: EdgeInsets.only(right: 20), child: Icon(Icons.search)),
+          )
         ],
         centerTitle: false,
         backgroundColor: Appcolors.primaryColor,
@@ -57,32 +79,35 @@ class AndroidCategoryPage extends StatelessWidget {
                 child: GridView.builder(
                     shrinkWrap: true,
                     primary: false,
-                    itemCount: 16,
+                    itemCount: categorydata.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             mainAxisSpacing: 10,
                             crossAxisSpacing: 10,
                             crossAxisCount: 4,
-                            childAspectRatio: 5 / 6),
+                            childAspectRatio: 5 / 7),
                     itemBuilder: (context, index) {
                       return Container(
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color:Colors.white,
                             border: Border.all(
                                 color: Colors.grey.withOpacity(0.3),
                                 style: BorderStyle.solid)),
                         child: Column(
                           children: [
                             Container(
-                              height: 60,
-                              color: Colors.grey,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                color: Appcolors.primaryColor.withOpacity(0.3),
+                                image: const DecorationImage(image: AssetImage("assets/images/category.png"))
+                              ),
                             ),
-                            const Text(
-                              "Mern& Baby",
+                             Text(
+                             categorydata[index].toString(),
                               textAlign: TextAlign.center,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(fontSize: 12),
+                              style: const TextStyle(fontSize: 12),
                             )
                           ],
                         ),

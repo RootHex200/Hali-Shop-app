@@ -8,28 +8,28 @@ class Webview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final progress = true;
     return Scaffold(
-        appBar: AppBar(
-          title: Text(titile.toString()),
-          centerTitle: true,
-          leading: const Icon(
-            Icons.arrow_back_ios,
-            size: 25,
-            color: Colors.black,
-          ),
+      appBar: AppBar(
+        title: Text(titile.toString()),
+        centerTitle: true,
+        leading: const Icon(
+          Icons.arrow_back_ios,
+          size: 25,
+          color: Colors.black,
         ),
-        body: WebView(
-          onProgress: (progress) {
-            if (progress == 100) {
+      ),
+      body:WebView(
               
-            }
-          },
-          onPageFinished: (url) {
-            print(url);
-          },
-          initialUrl: url.toString(),
-        ));
+                  onProgress: (progress) {
+                    if (progress == 100) {
+                    }
+                  },
+                  onPageFinished: (url) {
+                    // print(url);
+                  },
+                  initialUrl: url.toString(),
+                )
+    );
   }
 }
 

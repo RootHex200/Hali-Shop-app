@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:monarch_mart/view_model/riverpod/checkVisibility_provider.dart';
+import 'package:monarch_mart/view_model/simplehadler/checkVisibility_provider.dart';
 
 import '../../../../utils/widgets/spaceer.dart';
 
