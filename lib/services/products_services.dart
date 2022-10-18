@@ -23,7 +23,8 @@ class ProductServices {
         throw "403";
       case 500:
       default:
-        throw 'Error occured while communication with server with status code : ${response.statusCode}';
+        throw 'Error occured while communication with server' +
+            ' with status code : ${response.statusCode}';
     }
   }
 }

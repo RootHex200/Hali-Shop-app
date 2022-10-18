@@ -6,7 +6,7 @@ class SearchFiled extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: CupertinoSearchTextField(
         decoration: BoxDecoration(
@@ -20,8 +20,9 @@ class SearchFiled extends StatelessWidget {
                 offset: const Offset(0, 2), // changes position of shadow
               ),
             ]),
-        prefixIcon: const Icon(Icons.menu),
+        prefixIcon: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
         suffixIcon: const Icon(Icons.search),
+        onSuffixTap: () {},
         itemColor: Colors.black,
         itemSize: 28,
         prefixInsets: const EdgeInsets.only(left: 15),

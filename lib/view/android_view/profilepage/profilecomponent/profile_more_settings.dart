@@ -23,7 +23,7 @@ class ProfileMoreSettings extends StatelessWidget {
       itemBuilder: ((context, index) {
         return InkWell(
           onTap: () {
-
+            print("Clicked ${moreSttingsURL[index]["url"]}");
             Navigator.push(
                 context, MaterialPageRoute(builder: ((context) => Webview(url:moreSttingsURL[index]["url"].toString(),titile: moreSttingsURL[index]["name"].toString(),))));
           },
@@ -47,3 +47,11 @@ class ProfileMoreSettings extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+ 

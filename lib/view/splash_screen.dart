@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
-// import 'dart:io' show Platform;
-// import 'package:monarch_mart/view/ios_view/ios_main_page.dart';
+import 'dart:io' show Platform;
+import 'package:monarch_mart/view/ios_view/ios_main_page.dart';
 
 import 'android_view/android_main_page.dart';
 
