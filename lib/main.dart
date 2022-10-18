@@ -3,8 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monarch_mart/utils/colors.dart';
 
-
-
 import 'package:monarch_mart/view/splash_screen.dart';
 
 void main() {

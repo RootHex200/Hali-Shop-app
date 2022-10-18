@@ -8,7 +8,6 @@ class Webview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final progress = true;
     return Scaffold(
       appBar: AppBar(
         title: Text(titile.toString()),
@@ -26,7 +25,7 @@ class Webview extends StatelessWidget {
                     }
                   },
                   onPageFinished: (url) {
-                    print(url);
+                   
                   },
                   initialUrl: url.toString(),
                 )
