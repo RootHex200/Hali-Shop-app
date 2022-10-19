@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
+import 'package:monarch_mart/view/android_view/detailspage/androi_detailspage.dart';
 import 'dart:io' show Platform;
 import 'package:monarch_mart/view/ios_view/ios_main_page.dart';
 
@@ -22,7 +23,7 @@ class SplashScreen extends HookWidget {
         //       MaterialPageRoute(builder: (context) => const IosMainPage()));
         // }
                   Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const AndroidMainPage()));
+              MaterialPageRoute(builder: (context) => const AndroidDetailsPage()));
         
       });
       return null;
