@@ -37,7 +37,7 @@ class LoginWithUserID extends StatelessWidget {
                     width: 100,
                     image: AssetImage(
                         "assets/images/monarch_mart_no_bg_logo.png")),
-                // this is Textfeild  for email       
+                // this is Textfeild  for email
                 const TextFieldLogin(
                   height: 40,
                   width: double.infinity,
@@ -51,11 +51,15 @@ class LoginWithUserID extends StatelessWidget {
                   hint: "Enter your Passwoerd",
                 ),
                 const VerticalSpacer(height: 20),
-                //  this is login button with primary color 
+                //  this is login button with primary color
                 ElevatedButtonAuth(
                   onTap: () {},
                   color: Appcolors.primaryColor,
-                  child: const Text("Login"),
+                  child: const Center(
+                      child: Text(
+                    "Login",
+                    style: TextStyle(color: Appcolors.scaffoldBGColor),
+                  )),
                 )
               ],
             ),

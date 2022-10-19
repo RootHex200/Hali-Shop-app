@@ -43,7 +43,7 @@ class SettingOption extends StatelessWidget {
             ),
             title:   Text(
               setting[index]["title"].toString(),
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             subtitle:  Text(setting[index]["subtitle"].toString(),),
           );

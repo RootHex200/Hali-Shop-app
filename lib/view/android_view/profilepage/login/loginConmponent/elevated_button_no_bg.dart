@@ -14,12 +14,13 @@ class ElevatedButtonAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("rebuild bro bro /........");
+    // print("rebuild bro bro /........");
     return SizedBox(
       child: InkWell(
         onTap: onTap,
         child: Container(
           height: 40,
+          
           width: double.infinity,
           decoration: BoxDecoration(
             color: color,

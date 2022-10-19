@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'dart:math' as math;
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/view/android_view/detailspage/androi_detailspage.dart';
 import 'package:monarch_mart/view_model/apihandler/product_handler_provider.dart';
@@ -48,8 +47,8 @@ class AllProducts extends StatelessWidget {
             final data = ref.watch(productProvider);
             return data.when(
               error: (error, stacktrace) {
-                print(error);
-                print(stacktrace);
+                // print(error);
+                // print(stacktrace);
                 return const Text("data");
               },
               loading: () => const CircularProgressIndicator(),
