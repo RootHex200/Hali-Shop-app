@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/string.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
+import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/edit_profile.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/login.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/login_with_user_id.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/signup.dart';
@@ -66,6 +67,12 @@ class AndroidProfilePage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => const Signup()));
                 },
                 child: const Text("sign up")),
+                ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const EditProfile()));
+                },
+                child: const Text("edit profile")),
             const ProfileView(),
             const VerticalSpacer(height: 10),
 

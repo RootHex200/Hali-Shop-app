@@ -5,22 +5,24 @@ class ElevatedButtonAuth extends StatelessWidget {
   final VoidCallback onTap;
   final Widget child;
   final Color? color;
-  const ElevatedButtonAuth({
-    super.key,
-    required this.onTap,
-    required this.child,
-    this.color,
-  });
+
+  final double? width;
+  const ElevatedButtonAuth(
+      {super.key,
+      required this.onTap,
+      required this.child,
+      this.color,
+      this.width});
 
   @override
   Widget build(BuildContext context) {
-    print("rebuild bro bro /........");
+    // print("rebuild bro bro /........");
     return SizedBox(
       child: InkWell(
         onTap: onTap,
         child: Container(
           height: 40,
-          width: double.infinity,
+          width: width,
           decoration: BoxDecoration(
             color: color,
             borderRadius: const BorderRadius.all(

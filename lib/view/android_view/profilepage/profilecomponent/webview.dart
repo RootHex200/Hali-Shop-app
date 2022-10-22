@@ -25,7 +25,7 @@ class Webview extends StatelessWidget {
                     }
                   },
                   onPageFinished: (url) {
-                    print(url);
+                    
                   },
                   initialUrl: url.toString(),
                 )

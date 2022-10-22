@@ -13,6 +13,11 @@ class AppString {
   ///sign up page
   static const String createAnAccount = "Creat an Account";
   static const String alreadyRegistered = "Already Registered";
+  static const String enteryourname = "Enter your Name";
+  static const String enteryourphone = "Enter your Phone";
+  static const String enteryouremail = "Enter your Email";
+  static const String enteryourepassword = "Enter your Password";
+  static const String enteryourcomfirmpassword = "Confirm your password";
 
   ///profile page text
   static const String basicInformation = "Basic Information";
