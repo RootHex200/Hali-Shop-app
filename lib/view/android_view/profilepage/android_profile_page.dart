@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/string.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
-import 'package:monarch_mart/view/android_view/profilepage/edit_profile.dart';
+import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/edit_profile.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/login.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/login_with_user_id.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/signup.dart';
