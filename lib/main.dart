@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:monarch_mart/services/bkash_service.dart';
+import 'package:monarch_mart/services/location_page.dart';
 import 'package:monarch_mart/utils/colors.dart';
-
+import 'package:monarch_mart/utils/widgets/no_internet_connection.dart';
 import 'package:monarch_mart/view/splash_screen.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +35,6 @@ class MyApp extends StatelessWidget {
             home: child,
           );
         },
-        child: const SplashScreen());
+        child: const  LocationPage());
   }
 }

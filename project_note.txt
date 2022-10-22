@@ -14,7 +14,16 @@ Target:
 06. Flutter - 3.3.4, dart 2.18 
 07. Git Branch (main, dev)
 
-
+##08. ssl,bkash payment intregate
+09.gelocation/location tracking
+10.google map
+##11.unique mobile app(get_mac address)
+12.update check of app(https://pub.dev/packages/in_app_update)
+13.interview
+14.session/otp/jwt
+15.apply copun
+17.product_sseach and sort
+##16.login cartoon amination
 Flutter Icons Name:
 	Bottom nav bar Icons - home, grid_view, storefront, shopping cart, person
 	Home page top - icon - menu, search

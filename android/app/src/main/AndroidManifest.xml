@@ -1,9 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.monarch_mart">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
    <application
         android:label="monarch_mart"
         android:name="${applicationName}"
         android:icon="@mipmap/monarch_mart_logo">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAXkMNWAh9LTF9K9dZx_gubQ_Vvc7fEJTQ"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
