@@ -21,7 +21,9 @@ class OrderHistory extends StatelessWidget {
         titleTextStyle:const TextStyle(fontSize: 15),
         title: const Text("Purchase History", style: TextStyle(fontSize: 14),),
       ),
-      body: Column(children: const []),
+      body: Column(children: const [
+        Spacer()
+      ]),
     ));
   }
 }

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 
 class EditProfile extends StatelessWidget {
   const EditProfile({super.key});
@@ -7,7 +7,7 @@ class EditProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        titleTextStyle:const TextStyle(fontSize: 17),
+        titleTextStyle: const TextStyle(fontSize: 17),
         toolbarHeight: 25,
         elevation: 0.0,
         backgroundColor: Colors.white,
@@ -17,7 +17,8 @@ class EditProfile extends StatelessWidget {
         leading: IconButton(
             onPressed: () {},
             icon: const Icon(
-              Icons.arrow_back_ios, size: 17,
+              Icons.arrow_back_ios,
+              size: 17,
             )),
       ),
       body: Column(

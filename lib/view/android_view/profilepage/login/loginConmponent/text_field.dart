@@ -43,7 +43,7 @@ class TextFieldLogin extends StatelessWidget {
         hintText: hint,
         hintTextDirection: TextDirection.ltr,
         hintStyle: TextStyle(
-          fontSize: 16.sp,
+          fontSize: 12.sp,
           fontWeight: FontWeight.w600,
         ),
       ),

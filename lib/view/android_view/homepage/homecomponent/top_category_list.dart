@@ -40,7 +40,7 @@ class TopCategoryList extends StatelessWidget {
             const VerticalSpacer(height: 20),
             SizedBox(
               width: MediaQuery.of(context).size.width,
-              height: 120,
+              height: 100,
               child: ListView.builder(
                   itemCount: 20,
                   scrollDirection: Axis.horizontal,
@@ -52,19 +52,19 @@ class TopCategoryList extends StatelessWidget {
                         children: [
                           Container(
                             width: 80,
-                            height: 70,
+                            height: 50,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.white),
                           ),
                           const VerticalSpacer(height: 10),
-                          const SizedBox(
+                            SizedBox(
                             width: 80,
                             child: Text(
-                              "Top Seller hello ",
+                              "Top Seller hello $index",
                               maxLines: 2,
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.white),

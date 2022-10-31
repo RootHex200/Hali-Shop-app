@@ -23,7 +23,7 @@ class Signup extends StatelessWidget {
               child: Stack(alignment: AlignmentDirectional.center, children: [
                 // this is image
 
-                const Positioned(
+                const Positioned( 
                   top: 20,
                   left: 1,
                   right: 1,

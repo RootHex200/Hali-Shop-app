@@ -3,10 +3,8 @@ import 'dart:convert';
 import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import 'package:flutter_bkash/flutter_bkash.dart';
-
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:monarch_mart/view/android_view/homepage/android_home_page.dart';
-
+ 
 enum Intent { sale, authorization }
 
 class BkashService extends StatefulWidget {
@@ -20,7 +18,7 @@ class HomePageState extends State<BkashService> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final TextEditingController _amountController = TextEditingController();
 
-  Intent _intent = Intent.sale;
+  final Intent _intent = Intent.sale;
   FocusNode? focusNode;
 
   @override
@@ -41,7 +39,7 @@ class HomePageState extends State<BkashService> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(title: Text("Bkash pyment")),
+      appBar: AppBar(title: const Text("Bkash pyment")),
       body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(80, 40, 80, 40),
         child: Column(
@@ -111,7 +109,7 @@ class HomePageState extends State<BkashService> {
                 ),
                 onPressed: () {
                   String amount = _amountController.text.trim();
-                  String intent =
+                  //String intent =
                       _intent == Intent.sale ? "sale" : "authorization";
 
                   if (amount.isEmpty) {

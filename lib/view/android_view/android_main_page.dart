@@ -8,13 +8,15 @@ import 'package:monarch_mart/view/android_view/productpage/android_product_page.
 import 'package:monarch_mart/view/android_view/profilepage/android_profile_page.dart';
 import 'package:monarch_mart/view_model/simplehadler/bottomnavigation_provider.dart';
 
+
+
 List page = const [
   AndroidHomePage(),
   AndroidCategoryPage(),
   AndroidProductPage(),
   AndroidCardPage(),
   AndroidProfilePage()
-];
+]; 
 
 class AndroidMainPage extends StatelessWidget {
   const AndroidMainPage({super.key});

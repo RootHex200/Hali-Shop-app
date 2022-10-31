@@ -15,13 +15,14 @@ class AndroidHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children:const  [
+              VerticalSpacer(height: 10),
               //search bar of homepage
               SearchFiled(),
               VerticalSpacer(height: 10),
@@ -37,23 +38,23 @@ class AndroidHomePage extends StatelessWidget {
               //Discount banner
               DiscountBanner(),
               VerticalSpacer(height: 20),
-
+    
               //Featured Products
               Padding(
                 padding: EdgeInsets.only(left: 20),
                 child: Text("Featured Products",style: TextStyle(color: Appcolors.primaryColor),)),
               VerticalSpacer(height: 20),
-
+    
               //product horizontally
               ProdcutListHorizontaly(),
-
+    
               //on sale products
               Padding(
                 padding: EdgeInsets.only(left: 20),
                 child: Text("On sale Products",style: TextStyle(color: Appcolors.primaryColor),)),
               VerticalSpacer(height: 20),
               ProdcutListHorizontaly(),
-
+    
               AllProducts()
             ],
           ),

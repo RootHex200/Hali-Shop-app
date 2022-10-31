@@ -5,8 +5,8 @@ class ElevatedButtonAuth extends StatelessWidget {
   final VoidCallback onTap;
   final Widget child;
   final Color? color;
-
   final double? width;
+  
   const ElevatedButtonAuth(
       {super.key,
       required this.onTap,

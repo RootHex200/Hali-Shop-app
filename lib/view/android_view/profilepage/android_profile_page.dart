@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:monarch_mart/services/bkash_service.dart';
+import 'package:monarch_mart/services/location_page.dart';
+import 'package:monarch_mart/services/ssl_commarce_service.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/string.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
-import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/edit_profile.dart';
+import 'package:monarch_mart/view/android_view/profilepage/login/checkout_page.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/login.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/login_with_user_id.dart';
+import 'package:monarch_mart/view/android_view/profilepage/login/opt_page.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/signup.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/profile_more_settings.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/profile_view.dart';
@@ -67,12 +71,52 @@ class AndroidProfilePage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => const Signup()));
                 },
                 child: const Text("sign up")),
-                ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const EditProfile()));
-                },
-                child: const Text("edit profile")),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const BkashService()));
+              },
+              child: const Text("bkash"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LocationPage()));
+              },
+              child: const Text("location"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SslCommerz()));
+              },
+              child: const Text("SSL commerce"),
+            ),
+             ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const OTP()));
+              },
+              child: const Text("OTP"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Checkout()));
+              },
+              child: const Text("Checkout"),
+            ),
             const ProfileView(),
             const VerticalSpacer(height: 10),
 

@@ -64,6 +64,9 @@ class AppString {
   /// add to card text
   static const String totalAmount = "Total Amount";
   static const String proceedToOrder = "Proceed To Order";
+  static const String takasign = "৳";
+   
+
 
   ///navigation  drawer
   static const String myAccount = "My Account";
@@ -83,4 +86,8 @@ class AppString {
   static const String checkOutwithNagad = "Checkout with Nagad";
   static const String checkOutwithUpay = "Checkout with Upay";
   static const String cashonDelivery = "Cash on delivery";
+  static const String confirmorder = "Confirm Order";
+
+  ///otp
+  static const String wesendotpinyourphone = "We've sent an OTP in your phone";
 }
