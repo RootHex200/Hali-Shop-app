@@ -7,8 +7,8 @@ class DiscountBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
-  itemCount: 5,
-  options: CarouselOptions(
+    itemCount: 5,
+    options: CarouselOptions(
     height: 150,
     enlargeCenterPage: true,
     autoPlay: true,

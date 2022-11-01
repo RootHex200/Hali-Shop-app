@@ -21,27 +21,29 @@ class Checkout extends StatelessWidget {
             children: [
               Expanded(
                 flex: 5,
-                child: SizedBox(
-                  child: Column(
-                    children: const [
-                      AppbarTitleWithBackButton(data: "Checkout"),
-                      VerticalSpacer(height: 10),
-                      CheckOutWithBNU(
-                        data: "Checkout with Bkash",
-                      ),
-                      VerticalSpacer(height: 5),
-                      CheckOutWithBNU(
-                        data: "Checkout with Nagad",
-                      ),
-                      VerticalSpacer(height: 5),
-                      CheckOutWithBNU(
-                        data: "Checkout with Upay",
-                      ),
-                      VerticalSpacer(height: 5),
-                      CheckOutWithBNU(
-                        data: "Cash on delivery",
-                      ),
-                    ],
+                child: SingleChildScrollView(
+                  child: SizedBox(
+                    child: Column(
+                      children: const [
+                        AppbarTitleWithBackButton(data: "Checkout"),
+                        VerticalSpacer(height: 10),
+                        CheckOutWithBNU(
+                          data: "Checkout with Bkash",
+                        ),
+                        VerticalSpacer(height: 5),
+                        CheckOutWithBNU(
+                          data: "Checkout with Nagad",
+                        ),
+                        VerticalSpacer(height: 5),
+                        CheckOutWithBNU(
+                          data: "Checkout with Upay",
+                        ),
+                        VerticalSpacer(height: 5),
+                        CheckOutWithBNU(
+                          data: "Cash on delivery",
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

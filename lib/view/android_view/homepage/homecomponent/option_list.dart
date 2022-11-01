@@ -6,7 +6,7 @@ class OptionList extends StatelessWidget {
   const OptionList({super.key});
 
   static final List optList = [
-    {"name": "Top Sellers", "icon": "assets/images/mmicon/one.png"},
+    {"name": "Top Sellers", "icon": "assets/images/mmicon/five.png"},
     {"name": "Top Brands", "icon": "assets/images/mmicon/two.png"},
     {"name": "Best Sellings", "icon": "assets/images/mmicon/three.png"},
     {"name": "New Arrival", "icon": "assets/images/mmicon/four.png"},
@@ -35,7 +35,9 @@ class OptionList extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                         color: Appcolors.primaryColor.withOpacity(0.2)),
                     child: Image.asset(
+                      
                       "${optList[index]["icon"]}",
+                      height: 15,
                       color: Appcolors.primaryColor,
                     ),
                   ),

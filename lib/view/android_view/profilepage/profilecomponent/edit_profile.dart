@@ -1,12 +1,63 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/string.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
+import 'package:monarch_mart/view/android_view/android_main_page.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/loginConmponent/elevated_button_no_bg.dart';
 import 'editprofile_text_field.dart';
 
-class EditProfile extends StatelessWidget {
+class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
+
+  @override
+  State<EditProfile> createState() => _EditProfileState();
+}
+
+class _EditProfileState extends State<EditProfile> {
+  File? originalImage;
+  File? compressedImag;
+  String compressedImagePath = "/storage/emulated/0/Download/";
+  bool isMale = true;
+
+  //image pick from gallery ====>
+  Future pickImage() async {
+    final pickedFile =
+        await ImagePicker.platform.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        originalImage = File(pickedFile.path);
+      });
+    }
+
+    if (originalImage == null) return null;
+    final compressedFile = await FlutterImageCompress.compressAndGetFile(
+        originalImage!.path, "$compressedImagePath/file1.jpg");
+    if (compressedFile != null) {
+      setState(() {
+        compressedImag = compressedFile;
+      });
+      print(await originalImage!.length());
+      print(await compressedFile.length());
+    }
+  }
+
+//picked image from gallery, compressed image ====>
+  Future compressImage() async {
+    if (originalImage == null) return null;
+    final compressedFile = await FlutterImageCompress.compressAndGetFile(
+        originalImage!.path, "$compressedImagePath/file1.jpg",
+        quality: 10);
+    if (compressedFile != null) {
+      setState(() {
+        compressedImag = compressedFile;
+      });
+      print(await originalImage!.length());
+      print(await compressedFile.length());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,25 +89,33 @@ class EditProfile extends StatelessWidget {
             children: [
               //image - user image
               Stack(children: [
-                const Align(
+                Align(
                   alignment: Alignment.center,
-                  child: SizedBox(
-                    height: 80,
-                    width: 50,
-                    child: CircleAvatar(),
-                  ),
+                  child: originalImage != null
+                      ? CircleAvatar(
+                          radius: 52,
+                          backgroundColor: isMale ? Colors.blue : Colors.pink,
+                          child: CircleAvatar(
+                            radius: 50,
+                            foregroundImage: FileImage(originalImage!),
+                          ),
+                        )
+                      : Positioned(
+                          top: 10,
+                          right: 5,
+                          left: 25,
+                          bottom: -5,
+                          child: CircleAvatar(
+                            backgroundColor: Colors.yellowAccent,
+                            radius: 50,
+                            child: IconButton(
+                                onPressed: pickImage,
+                                icon: const Icon(
+                                  Icons.edit,
+                                  color: Colors.white,
+                                )),
+                          )),
                 ),
-                Positioned(
-                    top: 10,
-                    right: 5,
-                    left: 25,
-                    bottom: -5,
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.edit,
-                          color: Colors.white,
-                        )))
               ]),
               const Divider(),
               const VerticalSpacer(height: 25),
@@ -76,9 +135,9 @@ class EditProfile extends StatelessWidget {
               // text Edit field - name text field
               const EditProfileTextField(obscureText: false),
               const VerticalSpacer(height: 10),
-             const Align(
-                alignment: Alignment.topRight,
-                child:  Text(AppString.passwordhelper)),
+              const Align(
+                  alignment: Alignment.topRight,
+                  child: Text(AppString.passwordhelper)),
               const VerticalSpacer(height: 10),
               //text password
               const Text(

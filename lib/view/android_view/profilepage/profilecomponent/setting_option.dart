@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/edit_profile.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/shipping_address.dart';
-
 import 'oder_history.dart';
 
 class SettingOption extends StatelessWidget {
@@ -11,10 +10,31 @@ class SettingOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final setting = [
-      {"title": "My Account", "subtitle": "Make changes to your account"},
-      {"title": "Order History", "subtitle": "Take a look at your Orders"},
-      {"title": "Shipping Address", "subtitle": "Change or add your address"},
-      {"title": "Logout", "subtitle": "Laogout form your account"}
+      {
+        "icon": "assets/images/mmicon/one.png",
+        "title": "My Account",
+        "subtitle": "Make changes to your account"
+      },
+      {
+        "icon": "assets/images/mmicon/one.png",
+        "title": "Order History",
+        "subtitle": "Take a look at your Orders"
+      },
+      {
+        "icon": "assets/images/mmicon/one.png",
+        "title": "Shipping Address",
+        "subtitle": "Change or add your address"
+      },
+      {
+        "icon": "assets/images/mmicon/one.png",
+        "title": "Delete your Account",
+        "subtitle": "Account Delete"
+      },
+      {
+        "icon": "assets/images/mmicon/one.png",
+        "title": "Logout",
+        "subtitle": "Laogout form your account"
+      }
     ];
 
     return ListView.builder(
@@ -30,19 +50,27 @@ class SettingOption extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => const EditProfile()));
               } else if (index == 1) {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const OrderHistory()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const OrderHistory()));
               } else if (index == 2) {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const ShippingAddress()));
-              } else {
-                 
-              }
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ShippingAddress()));
+              } else {}
             },
             child: ListTile(
               leading: CircleAvatar(
                 radius: 25,
                 backgroundColor: Appcolors.primaryColor.withOpacity(0.3),
+                child: Image.asset(
+                  "${setting[index]["icon"]}",
+                  color: Appcolors.primaryColor,
+                  height: 28,
+                  //width: 20,
+                ),
               ),
               trailing: const Icon(
                 Icons.arrow_forward_ios,
