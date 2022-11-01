@@ -33,6 +33,13 @@ class AndroidProductPage extends StatelessWidget {
                       color: Colors.red,
                       width: 160,
                       height: 200,
+                      child: Column(
+                        children: [
+                          ElevatedButton(onPressed: (){
+                            
+                          }, child: Text("prize sort"))
+                        ],
+                      ),
                     ),
                   );
                 },

@@ -4,7 +4,7 @@ class ProductServices {
   Future<dynamic> getProductResponse() async {
     try {
       var response = await Dio().get("https://dummyjson.com/products");
-
+      print(response.runtimeType);
       return returnResponse(response);
     } catch (e) {
       return "Error";
@@ -23,7 +23,7 @@ class ProductServices {
       case 403:
         throw "403";
       case 500:
-      throw "500";
+        throw "500";
       default:
         throw 'Error occured while communication with server'
             ' with status code : ${response.statusCode}';

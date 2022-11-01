@@ -87,36 +87,45 @@ class _EditProfileState extends State<EditProfile> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //image - user image
-              Stack(children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: originalImage != null
-                      ? CircleAvatar(
-                          radius: 52,
-                          backgroundColor: isMale ? Colors.blue : Colors.pink,
-                          child: CircleAvatar(
-                            radius: 50,
-                            foregroundImage: FileImage(originalImage!),
-                          ),
-                        )
-                      : Positioned(
-                          top: 10,
-                          right: 5,
-                          left: 25,
-                          bottom: -5,
-                          child: CircleAvatar(
-                            backgroundColor: Colors.yellowAccent,
-                            radius: 50,
-                            child: IconButton(
-                                onPressed: pickImage,
-                                icon: const Icon(
-                                  Icons.edit,
-                                  color: Colors.white,
-                                )),
-                          )),
+
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  height: 150,
+                  width: 200,
+                  color: Colors.red,
+                  
                 ),
-              ]),
+              ),
+              //image - user image
+              //              // Stack(
+              // children: [
+              //   Align(
+              //     alignment: Alignment.center,
+              //     child: originalImage != null
+              //         ? CircleAvatar(
+              //             radius: 52,
+              //             backgroundColor: isMale ? Colors.blue : Colors.pink,
+              //             child: CircleAvatar(
+              //               radius: 50,
+              //               foregroundImage: FileImage(originalImage!),
+              //             ),
+              //           )
+              //         : Align(
+              //           alignment: Alignment.bottomRight,
+              //           child: CircleAvatar(
+              //             backgroundColor: Colors.yellowAccent,
+              //             radius: 50,
+              //             child: IconButton(
+              //                 onPressed: pickImage,
+              //                 icon: const Icon(
+              //                   Icons.edit,
+              //                   color: Colors.white,
+              //                 )),
+              //           ),
+              //         ),
+              //   ),
+              // ]),
               const Divider(),
               const VerticalSpacer(height: 25),
               //text basic information
