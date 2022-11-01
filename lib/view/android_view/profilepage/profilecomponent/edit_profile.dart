@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/string.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
-import 'package:monarch_mart/view/android_view/android_main_page.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/loginConmponent/elevated_button_no_bg.dart';
 import 'editprofile_text_field.dart';
 
@@ -88,25 +88,23 @@ class _EditProfileState extends State<EditProfile> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //image - user image
-              Stack(children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: originalImage != null
-                      ? CircleAvatar(
-                          radius: 52,
-                          backgroundColor: isMale ? Colors.blue : Colors.pink,
-                          child: CircleAvatar(
-                            radius: 50,
-                            foregroundImage: FileImage(originalImage!),
-                          ),
-                        )
-                      : Positioned(
-                          top: 10,
-                          right: 5,
-                          left: 25,
-                          bottom: -5,
-                          child: CircleAvatar(
-                            backgroundColor: Colors.yellowAccent,
+              Align(
+                alignment: Alignment.center,
+                child: SizedBox(
+                  height: 110,
+                  width: 110,
+                  child: Stack(children: [
+                    originalImage != null
+                        ? CircleAvatar(
+                            radius: 52,
+                            backgroundColor: isMale ? Colors.blue : Colors.pink,
+                            child: CircleAvatar(
+                              radius: 50,
+                              foregroundImage: FileImage(originalImage!),
+                            ),
+                          )
+                        : CircleAvatar(
+                            backgroundColor: Colors.red,
                             radius: 50,
                             child: IconButton(
                                 onPressed: pickImage,
@@ -114,9 +112,11 @@ class _EditProfileState extends State<EditProfile> {
                                   Icons.edit,
                                   color: Colors.white,
                                 )),
-                          )),
+                          ),
+                  ]),
                 ),
-              ]),
+              ),
+
               const Divider(),
               const VerticalSpacer(height: 25),
               //text basic information
