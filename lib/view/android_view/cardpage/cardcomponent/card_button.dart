@@ -22,12 +22,10 @@ class CardButton extends StatelessWidget {
       height: 40,
       width: 40,
       child: Center(
-        child: IconButton(
-            onPressed: () {},
-            icon: Icon(
+        child:  Icon(
               icondata,
               color: iconcolor,
-            )),
+            ),
       ),
     );
   }
