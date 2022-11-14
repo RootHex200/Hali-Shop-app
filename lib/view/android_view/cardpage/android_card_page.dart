@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/string.dart';
 import 'package:monarch_mart/utils/widgets/card_profile_appbar.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
 import 'package:monarch_mart/view/android_view/cardpage/cardcomponent/single_card_product.dart';
+import 'package:monarch_mart/view_model/carthandler/cart_handler_provider.dart';
 
 class AndroidCardPage extends StatelessWidget {
   const AndroidCardPage({super.key});
@@ -22,19 +24,7 @@ class AndroidCardPage extends StatelessWidget {
                 "Your Card",
                 style: TextStyle(color: Appcolors.primaryColor),
               )),
-              Expanded(
-                flex: 5,
-                child: SingleChildScrollView(
-                  child: SizedBox(
-                    child: Column(children: const [
-                      SingleCardProduct(),
-                      SingleCardProduct(),
-                      SingleCardProduct(),
-                      SingleCardProduct()
-                    ]),
-                  ),
-                ),
-              ),
+              const Expanded(child: SingleCardProduct()),
               const VerticalSpacer(height: 5),
               Container(
                 height: 30,
@@ -46,8 +36,8 @@ class AndroidCardPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.max,
-                    children: const [
-                      Padding(
+                    children: [
+                      const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
                           AppString.totalAmount,
@@ -56,11 +46,17 @@ class AndroidCardPage extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          " ৳ 128.0",
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Consumer(
+                          builder: (context, ref, child) {
+                            final total = ref.watch(totalAmoutn);
+                            return Text(
+                              " ৳ $total",
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            );
+                          },
                         ),
                       ),
                     ]),

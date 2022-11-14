@@ -22,8 +22,9 @@ Target:
 13.interview
 ##14.session/otp/jwt
 ##15.apply copun
-17.product_sseach and sort
+##17.product_sseach and sort(this future will be develope after completing project)
 ##16.login cartoon amination
+18.localization
 Flutter Icons Name:
 	Bottom nav bar Icons - home, grid_view, storefront, shopping cart, person
 	Home page top - icon - menu, search
