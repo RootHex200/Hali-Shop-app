@@ -53,6 +53,8 @@ class AllProducts extends StatelessWidget {
               },
               loading: () => const CircularProgressIndicator(),
               data: (data) {
+                data.products!.shuffle();
+
                 return GridView.builder(
                     shrinkWrap: true,
                     primary: false,
@@ -71,7 +73,7 @@ class AllProducts extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const AndroidDetailsPage()));
+                                       AndroidDetailsPage(data:data.products![index],)));
                         },
                         child: Stack(
                           children: [

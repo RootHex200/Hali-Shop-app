@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:monarch_mart/utils/colors.dart';
+import 'package:monarch_mart/utils/widgets/drawer.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
 import 'package:monarch_mart/utils/widgets/all_product.dart';
 import 'package:monarch_mart/view/android_view/homepage/homecomponent/carousel.dart';
@@ -17,11 +17,12 @@ class AndroidHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: const MonarchDrawer(),
         body: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children:const  [
+            children: const [
               VerticalSpacer(height: 10),
               //search bar of homepage
               SearchFiled(),
@@ -38,23 +39,29 @@ class AndroidHomePage extends StatelessWidget {
               //Discount banner
               DiscountBanner(),
               VerticalSpacer(height: 20),
-    
+
               //Featured Products
               Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Text("Featured Products",style: TextStyle(color: Appcolors.primaryColor),)),
+                  padding: EdgeInsets.only(left: 20),
+                  child: Text(
+                    "Featured Products",
+                    style: TextStyle(color: Appcolors.primaryColor),
+                  )),
               VerticalSpacer(height: 20),
-    
+
               //product horizontally
               ProdcutListHorizontaly(),
-    
+
               //on sale products
               Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Text("On sale Products",style: TextStyle(color: Appcolors.primaryColor),)),
+                  padding: EdgeInsets.only(left: 20),
+                  child: Text(
+                    "On sale Products",
+                    style: TextStyle(color: Appcolors.primaryColor),
+                  )),
               VerticalSpacer(height: 20),
               ProdcutListHorizontaly(),
-    
+
               AllProducts()
             ],
           ),

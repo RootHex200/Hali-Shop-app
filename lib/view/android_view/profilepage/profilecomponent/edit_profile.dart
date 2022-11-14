@@ -106,12 +106,15 @@ class _EditProfileState extends State<EditProfile> {
                         : CircleAvatar(
                             backgroundColor: Colors.red,
                             radius: 50,
-                            child: IconButton(
-                                onPressed: pickImage,
-                                icon: const Icon(
-                                  Icons.edit,
-                                  color: Colors.white,
-                                )),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: IconButton(
+                                  onPressed: pickImage,
+                                  icon: const Icon(
+                                    Icons.edit,
+                                    color: Colors.white,
+                                  )),
+                            ),
                           ),
                   ]),
                 ),

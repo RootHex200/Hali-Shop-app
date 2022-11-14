@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monarch_mart/model/product_model.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
 import 'package:monarch_mart/view/android_view/detailspage/detailscomponent/add_to_cart_buy_now.dart';
@@ -9,7 +10,8 @@ import 'package:monarch_mart/view/android_view/detailspage/detailscomponent/summ
 import 'package:monarch_mart/view/android_view/detailspage/detailscomponent/title_rating_price.dart';
 
 class AndroidDetailsPage extends StatelessWidget {
-  const AndroidDetailsPage({super.key});
+  final Products data;
+  const AndroidDetailsPage({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -45,18 +47,16 @@ class AndroidDetailsPage extends StatelessWidget {
                   child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  ProductImageView(),
-                  VerticalSpacer(height: 10),
-                  TitleRatingPrice(),
-                  VerticalSpacer(height: 20),
-                  BrandSKUSize(),
-                  VerticalSpacer(height: 20),
-                  SpecificationTabbar(),
-                  VerticalSpacer(height: 20),
-                  Visibility(
-                    visible: true,
-                    child: Summary())
+                children:  [
+                  ProductImageView(image: data.images, discount: data.discountPercentage,),
+                  const VerticalSpacer(height: 10),
+                  TitleRatingPrice(price: data.price, product_title: data.title.toString(), rating: data.rating,),
+                  const VerticalSpacer(height: 20),
+                  const BrandSKUSize(),
+                  const VerticalSpacer(height: 20),
+                  const SpecificationTabbar(),
+                  const VerticalSpacer(height: 20),
+                  const Visibility(visible: true, child: Summary())
                 ],
               )),
             ),

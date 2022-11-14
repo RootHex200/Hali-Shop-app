@@ -45,11 +45,11 @@ class AndroidMainPage extends StatelessWidget {
                 BottomNavigationBarItem(
                     icon: Icon(Icons.grid_view), label: "Category"),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.storefront), label: "Store"),
+                    icon: Icon(Icons.storefront), label: "Product"),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.shopping_cart), label: "Cart"),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.person), label: "Person"),
+                    icon: Icon(Icons.person), label: "Profile"),
               ]);
           },
         ));
