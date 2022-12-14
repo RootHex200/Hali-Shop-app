@@ -6,10 +6,11 @@ import 'package:monarch_mart/utils/widgets/no_internet_connection.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
 import 'dart:async';
 import 'package:monarch_mart/view/android_view/android_main_page.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
-///====> this comment for web test. this code not working on web but working fine at emulator.
+/* ///====> this comment for web test. this code not working on web but working fine at emulator.
 
-/* class SplashScreen extends HookWidget {
+ class SplashScreen extends HookWidget {
   const SplashScreen({super.key});
   @override
   Widget build(BuildContext context) {
@@ -27,14 +28,14 @@ import 'package:monarch_mart/view/android_view/android_main_page.dart';
             case InternetConnectionStatus.connected:
               connection.value = true;
               Future.delayed(const Duration(seconds: 2), () {
-                // if (Platform.isAndroid) {
-                //   Navigator.of(context).pushReplacement(
-                //       MaterialPageRoute(builder: (context) => const AndroidMainPage()));
-                // }
-                // if(Platform.isIOS){
-                //             Navigator.of(context).pushReplacement(
-                //       MaterialPageRoute(builder: (context) => const IosMainPage()));
-                // }
+                if (Platform.isAndroid) {
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => const AndroidMainPage()));
+                }
+                if(Platform.isIOS){
+                            Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => const IosMainPage()));
+                }
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => const AndroidMainPage()));
               });
@@ -104,7 +105,13 @@ import 'package:monarch_mart/view/android_view/android_main_page.dart';
             ),
           );
   }
-} */
+}  */
+
+
+
+
+
+
 
 class SplashScreen extends HookWidget {
   const SplashScreen({super.key});
