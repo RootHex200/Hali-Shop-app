@@ -52,13 +52,13 @@ class AllProducts extends StatelessWidget {
                 return const Text("data");
               },
               loading: () => const CircularProgressIndicator(),
-              data: (data) {
-                data.products!.shuffle();
+              data: (product) {
+                // data.products!.shuffle();
 
                 return GridView.builder(
                     shrinkWrap: true,
                     primary: false,
-                    itemCount: data.products!.length,
+                    itemCount: product.data!.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         mainAxisSpacing: 10,
@@ -73,7 +73,8 @@ class AllProducts extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                       AndroidDetailsPage(data:data.products![index],)));
+                                       AndroidDetailsPage(product:product.data![index]))
+                                       );
                         },
                         child: Stack(
                           children: [
@@ -89,8 +90,8 @@ class AllProducts extends StatelessWidget {
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.cover,
-                                            image: NetworkImage(data
-                                                .products![index].thumbnail
+                                            image: NetworkImage(
+                                                product.data![index].thumimage
                                                 .toString())),
                                         color: Colors.white,
                                         border: Border.all(
@@ -101,7 +102,7 @@ class AllProducts extends StatelessWidget {
                                   SizedBox(
                                     width: 130,
                                     child: Text(
-                                      data.products![index].title.toString(),
+                                      product.data![index].title.toString(),
                                       textAlign: TextAlign.center,
                                       maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
@@ -112,7 +113,7 @@ class AllProducts extends StatelessWidget {
                                       text: TextSpan(children: [
                                     TextSpan(
                                         text:
-                                            " ৳${data.products![index].price.toString()}",
+                                            " ৳${product.data![index].price.toString()}",
                                         style: const TextStyle(
                                             decorationColor:
                                                 Appcolors.primaryColor,
@@ -123,7 +124,7 @@ class AllProducts extends StatelessWidget {
                                             color: Colors.black)),
                                     TextSpan(
                                         text:
-                                            " ৳${data.products![index].price.toString()}",
+                                            " ৳${product.data![index].price.toString()}",
                                         style: const TextStyle(
                                             color: Appcolors.primaryColor))
                                   ]))
@@ -143,7 +144,7 @@ class AllProducts extends StatelessWidget {
                                           topRight: Radius.circular(8))),
                                   child: Center(
                                     child: Text(
-                                      "${data.products![index].discountPercentage!.floor().toString()}%",
+                                      "${product.data![index].discount}%",
                                       style:
                                           const TextStyle(color: Colors.white),
                                     ),

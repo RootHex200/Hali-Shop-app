@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:monarch_mart/utils/colors.dart';
+import 'package:monarch_mart/view_model/apihandler/categroy_handler.dart';
 
 List<String> categorydata = [
   "smartphones",
@@ -76,43 +78,56 @@ class AndroidCategoryPage extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 padding: const EdgeInsets.only(left: 20, right: 20),
-                child: GridView.builder(
-                    shrinkWrap: true,
-                    primary: false,
-                    itemCount: categorydata.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            mainAxisSpacing: 10,
-                            crossAxisSpacing: 10,
-                            crossAxisCount: 4,
-                            childAspectRatio: 5 / 7),
-                    itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                            color:Colors.white,
-                            border: Border.all(
-                                color: Colors.grey.withOpacity(0.3),
-                                style: BorderStyle.solid)),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 70,
+                child: Consumer(
+                  builder: (context, ref, child) {
+                    final categorymodel = ref.watch(categoryProvider);
+                    return categorymodel.when(
+                      loading: () =>
+                          const Center(child: CircularProgressIndicator()),
+                      error: (error, stackTrace) => const Text("Error"),
+                      data: (category) => GridView.builder(
+                          shrinkWrap: true,
+                          primary: false,
+                          itemCount: category.data!.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  mainAxisSpacing: 10,
+                                  crossAxisSpacing: 10,
+                                  crossAxisCount: 4,
+                                  childAspectRatio: 5 / 7),
+                          itemBuilder: (context, index) {
+                            return Container(
                               decoration: BoxDecoration(
-                                color: Appcolors.primaryColor.withOpacity(0.3),
-                                image: const DecorationImage(image: AssetImage("assets/images/category.png"))
+                                  color: Colors.white,
+                                  border: Border.all(
+                                      color: Colors.grey.withOpacity(0.3),
+                                      style: BorderStyle.solid)),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 70,
+                                    decoration: BoxDecoration(
+                                        color: Appcolors.primaryColor
+                                            .withOpacity(0.3),
+                                        image: DecorationImage(
+                                            image: NetworkImage(category
+                                                .data![index].image
+                                                .toString()))),
+                                  ),
+                                  Text(
+                                    category.data![index].title.toString(),
+                                    textAlign: TextAlign.center,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(fontSize: 12),
+                                  )
+                                ],
                               ),
-                            ),
-                             Text(
-                             categorydata[index].toString(),
-                              textAlign: TextAlign.center,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(fontSize: 12),
-                            )
-                          ],
-                        ),
-                      );
-                    }),
+                            );
+                          }),
+                    );
+                  },
+                ),
               ),
             )
           ],

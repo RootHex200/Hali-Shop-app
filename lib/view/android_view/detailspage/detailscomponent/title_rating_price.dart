@@ -5,8 +5,8 @@ import '../../../../utils/widgets/spaceer.dart';
 
 class TitleRatingPrice extends StatelessWidget {
   final String product_title;
-  final price;
-  final rating;
+  final String price;
+  final String rating;
   const TitleRatingPrice(
       {super.key,
       required this.product_title,
@@ -46,14 +46,14 @@ class TitleRatingPrice extends StatelessWidget {
                         5,
                         (index) => Icon(
                               Icons.star,
-                              color: index < rating.floor()
+                              color: index < int.parse(rating)
                                   ? Appcolors.primaryColor
                                   : Colors.grey.withOpacity(0.3),
                             )),
                   ),
                   const HorizontalSpacer(width: 20),
                   Text(
-                    "(${rating.floor()})",
+                    "(${rating})",
                     style: const TextStyle(color: Colors.black54, fontSize: 18),
                   )
                 ],

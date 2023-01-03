@@ -1,9 +1,21 @@
 import 'package:dio/dio.dart';
 
 class ProductServices {
+  final base_url = "http://192.168.1.21:5000/api/";
   Future<dynamic> getProductResponse() async {
     try {
-      var response = await Dio().get("https://dummyjson.com/products");
+      var response = await Dio().get("${base_url}product/");
+      print(response.runtimeType);
+      return returnResponse(response);
+    } catch (e) {
+      return "Error";
+    }
+  }
+
+  Future<dynamic> getCategoryResponse() async {
+    //http://localhost:5000/api/category
+    try {
+      var response = await Dio().get("${base_url}category/");
       print(response.runtimeType);
       return returnResponse(response);
     } catch (e) {

@@ -113,7 +113,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 
 
-class SplashScreen extends HookWidget {
+class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   @override

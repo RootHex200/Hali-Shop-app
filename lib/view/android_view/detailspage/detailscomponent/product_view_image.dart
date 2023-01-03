@@ -38,7 +38,7 @@ class ProductImageView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(4)),
               child: Center(
                   child: Text(
-                "${discount.floor().toString()}%",
+                "${discount.toString()}%",
                 style: const TextStyle(
                     color: Colors.white, fontWeight: FontWeight.bold),
               )),

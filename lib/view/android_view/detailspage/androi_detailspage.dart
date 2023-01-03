@@ -10,8 +10,8 @@ import 'package:monarch_mart/view/android_view/detailspage/detailscomponent/summ
 import 'package:monarch_mart/view/android_view/detailspage/detailscomponent/title_rating_price.dart';
 
 class AndroidDetailsPage extends StatelessWidget {
-  final Products data;
-  const AndroidDetailsPage({super.key, required this.data});
+  final Data product;
+  const AndroidDetailsPage({super.key,required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +48,9 @@ class AndroidDetailsPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children:  [
-                  ProductImageView(image: data.images, discount: data.discountPercentage,),
+                  ProductImageView(image: product.images, discount: product.discount,),
                   const VerticalSpacer(height: 10),
-                  TitleRatingPrice(price: data.price, product_title: data.title.toString(), rating: data.rating,),
+                  TitleRatingPrice(price: product.price.toString(), product_title: product.title.toString(), rating: product.rating.toString(),),
                   const VerticalSpacer(height: 20),
                   const BrandSKUSize(),
                   const VerticalSpacer(height: 20),
