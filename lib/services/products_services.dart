@@ -22,6 +22,15 @@ class ProductServices {
       return "Error";
     }
   }
+  Future<dynamic> getCart()async{
+    try {
+      var response = await Dio().get("http://192.168.1.21:5000/api/user/2/viewcart");
+      print(response.runtimeType);
+      return returnResponse(response);
+    } catch (e) {
+      return "Error";
+    }
+  }
 
   dynamic returnResponse(response) {
     switch (response.statusCode) {

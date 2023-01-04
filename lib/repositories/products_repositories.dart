@@ -1,3 +1,4 @@
+import 'package:monarch_mart/model/cartmodel.dart';
 import 'package:monarch_mart/model/categorymodel.dart';
 import 'package:monarch_mart/model/product_model.dart';
 import 'package:monarch_mart/services/products_services.dart';
@@ -14,6 +15,13 @@ class ProductRepositories {
   Future<CategoryModel> getCategoryData() async {
     final response = await productServices.getCategoryResponse();
     var data = CategoryModel.fromJson(response);
+    return data;
+  }
+
+
+    Future<CartModel> getCartData() async {
+    final response = await productServices.getCart();
+    var data = CartModel.fromJson(response);
     return data;
   }
 }
