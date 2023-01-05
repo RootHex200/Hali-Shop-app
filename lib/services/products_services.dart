@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:monarch_mart/model/add_to_cart_model.dart';
 
 class ProductServices {
   final base_url = "http://192.168.1.21:5000/api/";
@@ -22,11 +23,36 @@ class ProductServices {
       return "Error";
     }
   }
-  Future<dynamic> getCart()async{
+
+  Future<dynamic> getCart() async {
     try {
-      var response = await Dio().get("http://192.168.1.21:5000/api/user/2/viewcart");
+      var response =
+          await Dio().get("http://192.168.1.21:5000/api/user/2/viewcart");
       print(response.runtimeType);
       return returnResponse(response);
+    } catch (e) {
+      return "Error";
+    }
+  }
+
+  Future<dynamic> addToCart(AddToCartModel addToCartModel) async {
+    try {
+      var response = await Dio().post(
+          "http://192.168.1.21:5000/api/user/2/addtocart",
+          data: addToCartModel.toJson());
+
+      return response.statusCode;
+    } catch (e) {
+      return "Error";
+    }
+  }
+
+  Future<dynamic> removeCart(id)async{
+      try {
+      var response = await Dio().delete(
+          "http://192.168.1.21:5000/api/user/2/removefromcart",data: {"CartItemId":id.toString()});
+
+      return response.statusCode;
     } catch (e) {
       return "Error";
     }

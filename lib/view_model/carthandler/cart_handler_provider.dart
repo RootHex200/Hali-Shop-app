@@ -16,3 +16,7 @@ final totalAmoutn = StateProvider<int>((ref) {
   return 0;
 });
 
+
+final quantity = StateProvider.family<int,int>((ref,value) {
+  return 1;
+});

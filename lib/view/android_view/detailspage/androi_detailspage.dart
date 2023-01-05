@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monarch_mart/model/add_to_cart_model.dart';
 import 'package:monarch_mart/model/product_model.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
@@ -60,7 +61,7 @@ class AndroidDetailsPage extends StatelessWidget {
                 ],
               )),
             ),
-            const AddToCartAndBuyNow()
+             AddToCartAndBuyNow(addToCartModel: AddToCartModel(title: product.title.toString(), image: product.thumimage.toString(), price: product.price.toString()),)
           ],
         ));
   }

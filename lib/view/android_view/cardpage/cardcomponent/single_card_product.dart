@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:monarch_mart/model/cartmodel.dart';
+import 'package:monarch_mart/repositories/products_repositories.dart';
+import 'package:monarch_mart/services/products_services.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
 import 'package:monarch_mart/view/android_view/cardpage/cardcomponent/card_button.dart';
@@ -13,7 +13,6 @@ class SingleCardProduct extends StatelessWidget {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
     return Consumer(
@@ -21,7 +20,7 @@ class SingleCardProduct extends StatelessWidget {
         final cartprovider = ref.watch(cartProvider);
 
         return cartprovider.when(
-          error: (error, stackTrace) =>const Text("error"),
+          error: (error, stackTrace) => const Text("error"),
           loading: () => const Center(
             child: CircularProgressIndicator(),
           ),
@@ -75,27 +74,24 @@ class SingleCardProduct extends StatelessWidget {
                                           builder: (context, ref, child) =>
                                               InkWell(
                                             onTap: () {
-                                              // setState(() {
-                                              //   var temp =
-                                              //       cart_data[index][0] as int;
-                                              //   var amount =
-                                              //       cart_data[index][3] as int;
-                                              //   var fixed_amount =
-                                              //       cart_data[index][1] as int;
-                                              //   if (temp < 5) {
-                                              //     cart_data[index][0] =
-                                              //         temp + 1;
-                                              //     cart_data[index][3] =
-                                              //         amount + fixed_amount;
-                                              //     double totalamount =
-                                              //         totalAccount();
-                                              //     ref
-                                              //         .read(
-                                              //             totalAmoutn.notifier)
-                                              //         .setValue(totalamount);
-                                              //   }
-                                              // }
-                                              // );
+                                              if (ref.watch(quantity(index)) <
+                                                  5) {
+                                                ref
+                                                    .read(quantity(index)
+                                                        .notifier)
+                                                    .state++;
+
+                                                ref
+                                                    .read(totalAmoutn.notifier)
+                                                    .state = ref
+                                                        .read(totalAmoutn
+                                                            .notifier)
+                                                        .state +
+                                                    (1 *
+                                                        int.parse(cartdata.data!
+                                                            .items![index].price
+                                                            .toString()));
+                                              }
                                             },
                                             child: const CardButton(
                                               bodercolor: Colors.black26,
@@ -104,8 +100,7 @@ class SingleCardProduct extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          cartdata.data!.items![index].quantity
-                                              .toString(),
+                                          ref.watch(quantity(index)).toString(),
                                           style: const TextStyle(
                                               color: Appcolors.primaryColor),
                                         ),
@@ -113,27 +108,27 @@ class SingleCardProduct extends StatelessWidget {
                                           builder: (context, ref, child) {
                                             return InkWell(
                                               onTap: () {
-                                                // setState(() {
-                                                //   var temp = cart_data[index][0]
-                                                //       as int;
-                                                //   var amount = cart_data[index]
-                                                //       [3] as int;
-                                                //   var fixed_amount =
-                                                //       cart_data[index][1]
-                                                //           as int;
-                                                //   if (temp > 1) {
-                                                //     cart_data[index][0] =
-                                                //         temp - 1;
-                                                //     cart_data[index][3] =
-                                                //         amount - fixed_amount;
-                                                //     double totalamount =
-                                                //         totalAccount();
-                                                //     ref
-                                                //         .read(totalAmoutn
-                                                //             .notifier)
-                                                //         .setValue(totalamount);
-                                                //   }
-                                                // });
+                                                if (ref.watch(quantity(index)) >
+                                                    1) {
+                                                  ref
+                                                      .read(quantity(index)
+                                                          .notifier)
+                                                      .state--;
+
+                                                  ref
+                                                      .read(
+                                                          totalAmoutn.notifier)
+                                                      .state = ref
+                                                          .read(totalAmoutn
+                                                              .notifier)
+                                                          .state -
+                                                      (1 *
+                                                          int.parse(cartdata
+                                                              .data!
+                                                              .items![index]
+                                                              .price
+                                                              .toString()));
+                                                }
                                               },
                                               child: const CardButton(
                                                 bodercolor: Colors.black26,
@@ -142,10 +137,19 @@ class SingleCardProduct extends StatelessWidget {
                                             );
                                           },
                                         ),
-                                        const CardButton(
-                                          bodercolor: Appcolors.primaryColor,
-                                          icondata: (Icons.delete),
-                                          iconcolor: Appcolors.primaryColor,
+                                        GestureDetector(
+                                          onTap: () {
+                                            ProductRepositories()
+                                                .removeCartData(cartdata.data!
+                                                    .items![index].cartitemid
+                                                    .toString());
+                                            ProductRepositories().getCartData();
+                                          },
+                                          child: const CardButton(
+                                            bodercolor: Appcolors.primaryColor,
+                                            icondata: (Icons.delete),
+                                            iconcolor: Appcolors.primaryColor,
+                                          ),
                                         ),
                                       ],
                                     )
