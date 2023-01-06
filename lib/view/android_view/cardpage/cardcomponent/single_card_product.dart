@@ -143,7 +143,7 @@ class SingleCardProduct extends StatelessWidget {
                                                 .removeCartData(cartdata.data!
                                                     .items![index].cartitemid
                                                     .toString());
-                                            ProductRepositories().getCartData();
+                                            ref.refresh(cartProvider);
                                           },
                                           child: const CardButton(
                                             bodercolor: Appcolors.primaryColor,

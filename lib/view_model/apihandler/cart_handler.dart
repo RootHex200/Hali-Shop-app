@@ -3,7 +3,7 @@ import 'package:monarch_mart/model/cartmodel.dart';
 import 'package:monarch_mart/repositories/products_repositories.dart';
 import 'package:monarch_mart/view_model/carthandler/cart_handler_provider.dart';
 
-final cartProvider = FutureProvider<CartModel>((ref) async {
+final cartProvider = FutureProvider.autoDispose<CartModel>((ref) async {
   ProductRepositories productRepositories = ProductRepositories();
   int sum = 0;
   CartModel cartModel = await productRepositories.getCartData();
