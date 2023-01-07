@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:monarch_mart/model/add_to_cart_model.dart';
+import 'package:monarch_mart/model/login_user_input.dart';
+import 'package:monarch_mart/model/signup_user_input.dart';
 
 class ProductServices {
   final base_url = "http://192.168.1.21:5000/api/";
@@ -47,10 +49,11 @@ class ProductServices {
     }
   }
 
-  Future<dynamic> removeCart(id)async{
-      try {
+  Future<dynamic> removeCart(id) async {
+    try {
       var response = await Dio().delete(
-          "http://192.168.1.21:5000/api/user/2/removefromcart",data: {"CartItemId":id.toString()});
+          "http://192.168.1.21:5000/api/user/2/removefromcart",
+          data: {"CartItemId": id.toString()});
 
       return response.statusCode;
     } catch (e) {
@@ -58,6 +61,28 @@ class ProductServices {
     }
   }
 
+  Future<dynamic> signup(SignupUserInput signupUserInput) async {
+    try {
+      var response = await Dio().post(
+          "http://192.168.1.21:5000/api/user/createaccount",
+          data: signupUserInput.toJson());
+
+      return returnResponse(response);
+    } catch (e) {
+      return "Error";
+    }
+  }
+
+    Future<dynamic> signin(LoginUserInput loginUserInput) async {
+    try {
+      var response = await Dio().post(
+          "http://192.168.1.21:5000/api/user/login",
+          data: loginUserInput.toJson());
+      return returnResponse(response);
+    } catch (e) {
+      return "Error";
+    }
+  }
   dynamic returnResponse(response) {
     switch (response.statusCode) {
       case 200:

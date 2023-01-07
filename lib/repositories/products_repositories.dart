@@ -1,7 +1,10 @@
 import 'package:monarch_mart/model/add_to_cart_model.dart';
 import 'package:monarch_mart/model/cartmodel.dart';
 import 'package:monarch_mart/model/categorymodel.dart';
+import 'package:monarch_mart/model/login_user_input.dart';
 import 'package:monarch_mart/model/product_model.dart';
+import 'package:monarch_mart/model/signup_user_input.dart';
+import 'package:monarch_mart/model/authmodel.dart';
 import 'package:monarch_mart/services/products_services.dart';
 
 class ProductRepositories {
@@ -25,7 +28,6 @@ class ProductRepositories {
     return data;
   }
 
-
   Future<void> addToCartData(AddToCartModel addToCartModel) async {
     final response = await productServices.addToCart(addToCartModel);
     print(response);
@@ -36,7 +38,7 @@ class ProductRepositories {
     }
   }
 
-    Future<void> removeCartData(id) async {
+  Future<void> removeCartData(id) async {
     final response = await productServices.removeCart(id);
     if (response == 200) {
       print("Data is remove");
@@ -45,4 +47,15 @@ class ProductRepositories {
     }
   }
 
+  Future<AuthModel> signupData(SignupUserInput signupUserInput) async {
+    final response = await productServices.signup(signupUserInput);
+    var data = AuthModel.fromJson(response);
+    return data;
+  }
+
+  Future<AuthModel> signinData(LoginUserInput loginUserInput) async {
+    final response = await productServices.signin(loginUserInput);
+    var data = AuthModel.fromJson(response);
+    return data;
+  }
 }

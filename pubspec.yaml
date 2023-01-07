@@ -55,7 +55,7 @@ dependencies:
   pin_code_fields: ^7.4.0
   flutter_image_compress: ^1.1.3
   image_picker: ^0.8.6
-
+  shared_preferences: ^2.0.15
 dev_dependencies:
   flutter_test:
     sdk: flutter
