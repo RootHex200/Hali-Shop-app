@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:monarch_mart/model/login_user_input.dart';
 import 'package:monarch_mart/view/android_view/android_main_page.dart';
+import 'package:monarch_mart/view/android_view/profilepage/login/signup.dart';
 import 'package:monarch_mart/view_model/apihandler/auth_handler.dart';
 
 import '../../../../utils/colors.dart';
@@ -158,7 +159,22 @@ class _LoginWithUserIDState extends State<LoginWithUserID> {
                       style: TextStyle(color: Appcolors.scaffoldBGColor),
                     )),
                   ),
-                )
+                ),
+                const VerticalSpacer(height: 10),
+                ElevatedButtonAuth(
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Signup()),
+                        (route) => false);
+                  },
+                  color: Appcolors.primaryColor,
+                  child: const Center(
+                      child: Text(
+                    "Create Account",
+                    style: TextStyle(color: Appcolors.scaffoldBGColor),
+                  )),
+                ),
               ],
             ),
           )

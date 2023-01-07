@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:monarch_mart/services/location_page.dart';
-import 'package:monarch_mart/services/ssl_commarce_service.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/string.dart';
 import 'package:monarch_mart/utils/widgets/drawer.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
-import 'package:monarch_mart/utils/widgets/update_alart_dialog.dart';
-import 'package:monarch_mart/view/android_view/bkashpage/bkash_page.dart';
-import 'package:monarch_mart/view/android_view/profilepage/login/checkout_page.dart';
-import 'package:monarch_mart/view/android_view/profilepage/login/login.dart';
-import 'package:monarch_mart/view/android_view/profilepage/login/login_with_user_id.dart';
-import 'package:monarch_mart/view/android_view/profilepage/login/opt_page.dart';
-import 'package:monarch_mart/view/android_view/profilepage/login/signup.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/profile_more_settings.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/profile_view.dart';
 import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/setting_option.dart';
-import 'package:monarch_mart/view/android_view/sslcommerze/ssl_commerze.dart';
 
 class AndroidProfilePage extends StatelessWidget {
   const AndroidProfilePage({super.key});
@@ -23,7 +14,7 @@ class AndroidProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MonarchDrawer(),
+      drawer: const MonarchDrawer(),
       appBar: AppBar(
         leading: const Padding(
             padding: EdgeInsets.only(left: 10),
@@ -54,37 +45,6 @@ class AndroidProfilePage extends StatelessWidget {
           // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //main prfile view
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Login()));
-                },
-                child: const Text("login")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginWithUserID()));
-                },
-                child: const Text("login with user id")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Signup()));
-                },
-                child: const Text("sign up")),
-
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const BkashService()));
-              },
-              child: const Text("bkash"),
-            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -94,52 +54,7 @@ class AndroidProfilePage extends StatelessWidget {
               },
               child: const Text("location"),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SslCommerz()));
-              },
-              child: const Text("SSL commerce"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const OTP()));
-              },
-              child: const Text("OTP"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Checkout()));
-              },
-              child: const Text("Checkout"),
-            ),
-            Builder(
-              builder: (context)=> ElevatedButton(
-                onPressed: () {
-                  Scaffold.of(context).openDrawer()
-                  
-                  ;
-                },
-                child: const Text("drawer"),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const UpdateAlartDialog(
-                              title: "UPDATE NEEDED!",
-                              content: "Please update your Monarch Mart App",
-                              lftbtn: "UPDATE",
-                            )));
-              },
-              child: const Text("Update check alart diolog"),
-            ),
+
             const ProfileView(),
             const VerticalSpacer(height: 10),
 

@@ -7,8 +7,7 @@ import 'package:monarch_mart/view/android_view/homepage/android_home_page.dart';
 import 'package:monarch_mart/view/android_view/productpage/android_product_page.dart';
 import 'package:monarch_mart/view/android_view/profilepage/android_profile_page.dart';
 import 'package:monarch_mart/view_model/simplehadler/bottomnavigation_provider.dart';
-
-
+import 'package:monarch_mart/view_model/simplehadler/profile_view.dart';
 
 List page = const [
   AndroidHomePage(),
@@ -16,42 +15,42 @@ List page = const [
   AndroidProductPage(),
   AndroidCardPage(),
   AndroidProfilePage()
-]; 
+];
 
 class AndroidMainPage extends StatelessWidget {
   const AndroidMainPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Consumer(builder: (context, ref, child) {
-          final currentIndex = ref.watch(bottomnaigationStateProvider);
-          return page[currentIndex];
-        }),
-        bottomNavigationBar: Consumer(
-          
-          builder: (context, ref, child) {
-            final currentIndex = ref.watch(bottomnaigationStateProvider);
-            return BottomNavigationBar(
-              backgroundColor: Colors.white,
-              unselectedItemColor: Colors.grey,
-              selectedItemColor: Appcolors.primaryColor,
-              type: BottomNavigationBarType.fixed,
-              onTap: (index) {
-                ref.read(bottomnaigationStateProvider.notifier).state = index;
-              },
-              currentIndex: currentIndex,
-              items: const [
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.grid_view), label: "Category"),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.storefront), label: "Product"),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.shopping_cart), label: "Cart"),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.person), label: "Profile"),
-              ]);
-          },
-        ));
+    return Scaffold(body: Consumer(builder: (context, ref, child) {
+      final currentIndex = ref.watch(bottomnaigationStateProvider);
+      return page[currentIndex];
+    }), bottomNavigationBar: Consumer(
+      builder: (context, ref, child) {
+        final currentIndex = ref.watch(bottomnaigationStateProvider);
+        return BottomNavigationBar(
+            backgroundColor: Colors.white,
+            unselectedItemColor: Colors.grey,
+            selectedItemColor: Appcolors.primaryColor,
+            type: BottomNavigationBarType.fixed,
+            onTap: (index) {
+              ref.read(bottomnaigationStateProvider.notifier).state = index;
+              if (index == 4) {
+                ref.read(profileProvider.notifier).getProfileviewData();
+              }
+            },
+            currentIndex: currentIndex,
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.grid_view), label: "Category"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.storefront), label: "Product"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.shopping_cart), label: "Cart"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person), label: "Profile"),
+            ]);
+      },
+    ));
   }
 }

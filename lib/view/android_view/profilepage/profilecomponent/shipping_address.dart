@@ -1,6 +1,6 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:monarch_mart/utils/colors.dart';
-import 'package:monarch_mart/view/android_view/profilepage/login/loginConmponent/elevated_button_no_bg.dart';
 
 class ShippingAddress extends StatelessWidget {
   const ShippingAddress({super.key});
@@ -25,23 +25,9 @@ class ShippingAddress extends StatelessWidget {
           style: TextStyle(fontSize: 14),
         ),
       ),
-      body: SafeArea(
+      body: const SafeArea(
           child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            ElevatedButtonAuth(
-              color: Appcolors.primaryColor,
-              width: double.infinity,
-              onTap: () {},
-              child: const Center(
-                child: Icon(Icons.add),
-              ),
-            ),
-               
-          ],
-        ),
-      )),
+              padding: EdgeInsets.all(8.0), child: Text("Under developing"))),
     );
   }
 }

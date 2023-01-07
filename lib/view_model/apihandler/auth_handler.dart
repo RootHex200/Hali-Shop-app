@@ -20,6 +20,8 @@ class AuthNotifier extends StateNotifier<AuthModel> {
       state = response;
       final SharedPreferences db = await prefs;
       db.setString("uid", response.data!.userid.toString());
+      db.setString("name", response.data!.fullname.toString());
+      db.setString("email", response.data!.email.toString());
     }
   }
 
@@ -31,6 +33,8 @@ class AuthNotifier extends StateNotifier<AuthModel> {
       state = response;
       final SharedPreferences db = await prefs;
       db.setString("uid", response.data!.userid.toString());
+      db.setString("name", response.data!.fullname.toString());
+      db.setString("email", response.data!.email.toString());
     }
   }
 }

@@ -1,5 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:monarch_mart/utils/colors.dart';
+import 'package:monarch_mart/utils/db.dart';
+import 'package:monarch_mart/view/android_view/profilepage/login/signup.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MonarchAlartDiolog extends StatelessWidget {
   final String title;
@@ -38,7 +43,18 @@ class MonarchAlartDiolog extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Appcolors.primaryColor, // background
               ),
-              onPressed: () {},
+              onPressed: () async {
+                final SharedPreferences db = await prefs;
+                if (db.getString("uid")!.isNotEmpty) {
+                  db.clear();
+                }
+                print(db.getString('uid'));
+                // ignore: use_build_context_synchronously
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Signup()),
+                    (route) => false);
+              },
               child: Text(lftbtn)),
         ),
         SizedBox(
@@ -51,7 +67,9 @@ class MonarchAlartDiolog extends StatelessWidget {
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.blue // background
                   ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
               child: Text(rtbtn)),
         ),
       ],

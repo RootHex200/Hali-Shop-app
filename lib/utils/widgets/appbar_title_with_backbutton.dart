@@ -10,8 +10,8 @@ class AppbarTitleWithBackButton extends StatelessWidget {
       height: 35,
       width: double.maxFinite,
       child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
+         
+          
           children: [
             IconButton(
               onPressed: () {
@@ -19,9 +19,10 @@ class AppbarTitleWithBackButton extends StatelessWidget {
               },
               icon: const Icon(Icons.arrow_back_ios),
             ),
-            Expanded(
-              child: Align(alignment: Alignment.center, child: Text(data)),
-            )
+          Expanded(child: Container()),
+          Text(data),
+          Expanded(child: Container()),
+          const SizedBox(width: 20,)
           ]),
     );
   }

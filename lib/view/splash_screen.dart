@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:monarch_mart/utils/widgets/no_internet_connection.dart';
+import 'package:monarch_mart/utils/db.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
 import 'dart:async';
 import 'package:monarch_mart/view/android_view/android_main_page.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:monarch_mart/view/android_view/profilepage/login/signup.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /* ///====> this comment for web test. this code not working on web but working fine at emulator.
 
@@ -107,20 +105,21 @@ import 'package:flutter/foundation.dart' show kIsWeb;
   }
 }  */
 
-
-
-
-
-
-
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const AndroidMainPage()));
+    Future.delayed(const Duration(seconds: 2), () async {
+      final SharedPreferences db = await prefs;
+      var userId = db.getString("uid");
+      if (userId != null) {
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const AndroidMainPage()));
+      } else {
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const Signup()));
+      }
     });
 
     return Scaffold(

@@ -1,15 +1,15 @@
-
 import 'dart:convert';
 
 import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import 'package:flutter_bkash/flutter_bkash.dart';
 import 'package:fluttertoast/fluttertoast.dart';
- 
+
 enum Intent { sale, authorization }
 
 class BkashService extends StatefulWidget {
-  const BkashService({Key? key}) : super(key: key);
+  final String amount;
+  const BkashService({Key? key,required this.amount}) : super(key: key);
 
   @override
   HomePageState createState() => HomePageState();
@@ -111,7 +111,7 @@ class HomePageState extends State<BkashService> {
                 onPressed: () {
                   String amount = _amountController.text.trim();
                   //String intent =
-                      _intent == Intent.sale ? "sale" : "authorization";
+                  _intent == Intent.sale ? "sale" : "authorization";
 
                   if (amount.isEmpty) {
                     // if the amount is empty then show the snack-bar
@@ -123,7 +123,6 @@ class HomePageState extends State<BkashService> {
                   // remove focus from TextField to hide keyboard
                   focusNode!.unfocus();
 
-
                   //Goto BkashPayment page & pass the params
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => BkashPayment(
@@ -132,11 +131,12 @@ class HomePageState extends State<BkashService> {
 
                             /// amount of your bkash payment
                             amount: amount,
-                            
+
                             /// intent would be (sale / authorization)
                             intent: "sale",
                             // accessToken: '', /// if the user have own access token for verify payment
                             currency: 'BDT',
+
                             /// bkash url for create payment, when you implement on you project then it be change as your production create url, [when you send it on sandbox mode, send it as empty string '' or anything]
                             createBKashUrl:
                                 'https://merchantserver.sandbox.bka.sh/api/checkout/v1.2.0-beta/payment/create',
@@ -167,38 +167,40 @@ class HomePageState extends State<BkashService> {
                               /// when payment failed
                               else if (status == 'paymentFailed') {
                                 if (data.isEmpty) {
-                                  Fluttertoast.showToast(msg:'Payment Failed');
+                                  Fluttertoast.showToast(msg: 'Payment Failed');
                                 } else if (data[0]['errorMessage'].toString() !=
                                     'null') {
-                                  Fluttertoast.showToast(msg:
-                                      "Payment Failed ${data[0]['errorMessage']}");
+                                  Fluttertoast.showToast(
+                                      msg:
+                                          "Payment Failed ${data[0]['errorMessage']}");
                                 } else {
-                                  Fluttertoast.showToast(msg:"Payment Failed");
+                                  Fluttertoast.showToast(msg: "Payment Failed");
                                 }
                               }
 
                               // when payment on error
                               else if (status == 'paymentError') {
-                                Fluttertoast.showToast(msg:
-                                    jsonDecode(data['responseText'])['error']);
+                                Fluttertoast.showToast(
+                                    msg: jsonDecode(
+                                        data['responseText'])['error']);
                               }
 
                               // when payment close on demand closed the windows
                               else if (status == 'paymentClose') {
                                 if (data == 'closedWindow') {
-                                  Fluttertoast.showToast(msg:
-                                      'Failed to payment, closed screen');
+                                  Fluttertoast.showToast(
+                                      msg: 'Failed to payment, closed screen');
                                 } else if (data == 'scriptLoadedFailed') {
-                                  Fluttertoast.showToast(msg:
-                                      'Payment screen loading failed');
+                                  Fluttertoast.showToast(
+                                      msg: 'Payment screen loading failed');
                                 }
                               }
                               // back to screen to pop()
                               Navigator.of(context).pop();
                             },
-                          )
-
-                          ));
+                          ))
+                          
+                          );
                 },
               ),
             )

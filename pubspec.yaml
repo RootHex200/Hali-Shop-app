@@ -44,7 +44,6 @@ dependencies:
   carousel_nullsafety: ^0.1.1
   flutter_screenutil: ^5.5.4
   carousel_slider: ^4.1.1
-  webview_flutter: ^3.0.4
   flutter_bkash: ^0.1.3
   flutter_sslcommerz: ^2.2.2-nullsafety.0
   google_maps_flutter: ^2.2.1

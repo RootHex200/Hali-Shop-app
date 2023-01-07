@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final bottomnaigationStateProvider = StateProvider<int>((ref) {
+final bottomnaigationStateProvider = StateProvider.autoDispose<int>((ref) {
 
   return 0;
 });

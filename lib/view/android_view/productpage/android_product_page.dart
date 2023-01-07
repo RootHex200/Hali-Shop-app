@@ -17,7 +17,7 @@ class AndroidProductPage extends StatelessWidget {
           Column(
             children: const [
               SearchaProduct(),
-              ProductFilterSort(),
+
               Expanded(child: SingleChildScrollView(child: AllProducts()))
             ],
           ),

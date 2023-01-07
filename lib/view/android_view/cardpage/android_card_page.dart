@@ -6,6 +6,7 @@ import 'package:monarch_mart/utils/string.dart';
 import 'package:monarch_mart/utils/widgets/card_profile_appbar.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
 import 'package:monarch_mart/view/android_view/cardpage/cardcomponent/single_card_product.dart';
+import 'package:monarch_mart/view/android_view/profilepage/login/checkout_page.dart';
 import 'package:monarch_mart/view_model/carthandler/cart_handler_provider.dart';
 
 class AndroidCardPage extends StatelessWidget {
@@ -62,15 +63,26 @@ class AndroidCardPage extends StatelessWidget {
                     ]),
               ),
               const VerticalSpacer(height: 5),
-              Container(
-                height: 50,
-                decoration: const BoxDecoration(color: Appcolors.primaryColor),
-                child: const Center(
-                    child: Text(
-                  AppString.proceedToOrder,
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
+              Consumer(
+                builder:(context,ref,child) {
+                  return GestureDetector(
+                    onTap: (){
+                      if(ref.watch(totalAmoutn)>10){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const Checkout()));
+                      }
+                    },
+                    child: Container(
+                    height: 50,
+                    decoration: const BoxDecoration(color: Appcolors.primaryColor),
+                    child: const Center(
+                        child: Text(
+                      AppString.proceedToOrder,
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    )),
+                                  ),
+                  );
+                },
               ),
             ],
           ),

@@ -17,6 +17,6 @@ final totalAmoutn = StateProvider<int>((ref) {
 });
 
 
-final quantity = StateProvider.family<int,int>((ref,value) {
+final quantity = StateProvider.family.autoDispose<int,int>((ref,value) {
   return 1;
 });

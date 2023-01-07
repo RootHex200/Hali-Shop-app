@@ -10,7 +10,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 // ignore: camel_case_types
 class SSL_commerze{
-    Future<void> sslCommerzGeneralCall() async {
+    Future<void> sslCommerzGeneralCall(int amount) async {
     Sslcommerz sslcommerz = Sslcommerz(
       initializer: SSLCommerzInitialization(
         //Use the ipn if you have valid one, or it will fail the transaction.
@@ -21,7 +21,7 @@ class SSL_commerze{
         sdkType: SSLCSdkType.TESTBOX,
         store_id: "sabit63537fa970fe2",
         store_passwd: "sabit63537fa970fe2@ssl",
-        total_amount: 10,
+        total_amount: double.parse(amount.toString()),
         tran_id: "1231123131212",
       ),
     );

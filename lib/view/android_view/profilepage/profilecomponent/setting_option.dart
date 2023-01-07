@@ -60,28 +60,27 @@ class SettingOption extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => const ShippingAddress()));
-              } else if (index == 3){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MonarchAlartDiolog(
-                          title: "Delete Account",
-                          content: "Do you really want to Delete Your Account?",
-                          lftbtn: "YES",
-                          rtbtn: "No",
-                        )));
+              } else if (index == 3) {
+
+                              showDialog(
+                    context: context,
+                    builder: (context) =>const  MonarchAlartDiolog(
+                              title: "Delete Account",
+                              content:
+                                  "Do you really want to Delete Your Account?",
+                              lftbtn: "YES",
+                              rtbtn: "No",
+                            ));
               } else {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MonarchAlartDiolog(
+                showDialog(
+                    context: context,
+                    builder: (context) =>const  MonarchAlartDiolog(
                           title: "Log Out",
                           content: "Do you really want to logout?",
                           lftbtn: "YES",
                           rtbtn: "No",
-                        )));
+                        ));
               }
-              
             },
             child: ListTile(
               leading: CircleAvatar(

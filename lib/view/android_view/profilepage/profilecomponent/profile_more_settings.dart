@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:monarch_mart/utils/colors.dart';
-import 'package:monarch_mart/view/android_view/profilepage/profilecomponent/webview.dart';
 
 class ProfileMoreSettings extends StatelessWidget {
   const ProfileMoreSettings({super.key});
@@ -11,17 +10,14 @@ class ProfileMoreSettings extends StatelessWidget {
       {
         "icon": "assets/images/mmicon/one.png",
         "name": "Privacy Policy",
-        "url": "https://monarchmart.com/privacypolicy"
       },
       {
         "icon": "assets/images/mmicon/one.png",
         "name": "Return Policy",
-        "url": "https://monarchmart.com/returnpolicy"
       },
       {
         "icon": "assets/images/mmicon/one.png",
         "name": "Terms",
-        "url": "https://monarchmart.com/terms"
       },
     ];
     return ListView.builder(
@@ -31,31 +27,6 @@ class ProfileMoreSettings extends StatelessWidget {
       itemBuilder: ((context, index) {
         return GestureDetector(
           onTap: () {
-            if (index == 0) {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Webview(
-                            url: moreSttingsURL[index]["url"].toString(),
-                            titile: moreSttingsURL[index]["name"].toString(),
-                          )));
-            } else if (index == 1) {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Webview(
-                            url: moreSttingsURL[index]["url"].toString(),
-                            titile: moreSttingsURL[index]["name"].toString(),
-                          )));
-            } else if (index == 2) {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Webview(
-                            url: moreSttingsURL[index]["url"].toString(),
-                            titile: moreSttingsURL[index]["name"].toString(),
-                          )));
-            }
           },
           child: Padding(
             padding: const EdgeInsets.all(5.0),

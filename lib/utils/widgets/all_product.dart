@@ -16,44 +16,17 @@ class AllProducts extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                "Fashion",
-                style: TextStyle(color: Appcolors.primaryColor),
-              ),
-              Container(
-                height: 20,
-                width: 53,
-                padding: const EdgeInsets.symmetric(horizontal: 1),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                  color: Appcolors.primaryColor,
-                ),
-                child: const Text(
-                  "View All",
-                  style: TextStyle(color: Colors.white),
-                ),
-              )
-            ],
-          ),
-        ),
         const VerticalSpacer(height: 10),
         Consumer(
           builder: (context, ref, child) {
             final data = ref.watch(productProvider);
             return data.when(
               error: (error, stacktrace) {
-                // print(error);
-                // print(stacktrace);
-                return const Text("data");
+                return const Text("Error");
               },
               loading: () => const CircularProgressIndicator(),
               data: (product) {
-                // data.products!.shuffle();
+                product.data!.shuffle();
 
                 return GridView.builder(
                     shrinkWrap: true,
@@ -72,9 +45,8 @@ class AllProducts extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                       AndroidDetailsPage(product:product.data![index]))
-                                       );
+                                  builder: (context) => AndroidDetailsPage(
+                                      product: product.data![index])));
                         },
                         child: Stack(
                           children: [
@@ -90,8 +62,8 @@ class AllProducts extends StatelessWidget {
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.cover,
-                                            image: NetworkImage(
-                                                product.data![index].thumimage
+                                            image: NetworkImage(product
+                                                .data![index].thumimage
                                                 .toString())),
                                         color: Colors.white,
                                         border: Border.all(
