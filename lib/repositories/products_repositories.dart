@@ -16,6 +16,12 @@ class ProductRepositories {
     return data;
   }
 
+  Future<ProductModel> getSearchProduct(value) async {
+    final response = await productServices.getProductSearchResponse(value);
+    var data = ProductModel.fromJson(response);
+    return data;
+  }
+
   Future<CategoryModel> getCategoryData() async {
     final response = await productServices.getCategoryResponse();
     var data = CategoryModel.fromJson(response);

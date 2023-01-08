@@ -3,13 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/view/android_view/detailspage/androi_detailspage.dart';
 import 'package:monarch_mart/view_model/apihandler/product_handler_provider.dart';
+import 'package:monarch_mart/view_model/apihandler/serarch_product_handler.dart';
 
-import 'spaceer.dart';
+import '../../../../utils/widgets/spaceer.dart';
 
 //this widget Common widget of AndroidHomepage and AndroidProductPage
 
-class AllProducts extends StatelessWidget {
-  const AllProducts({super.key});
+class SearchProductData extends StatelessWidget {
+  const SearchProductData({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,8 @@ class AllProducts extends StatelessWidget {
         const VerticalSpacer(height: 10),
         Consumer(
           builder: (context, ref, child) {
-            final data = ref.watch(productProvider);
+            final searchdata = ref.watch(searchUservalueProvider);
+            final data = ref.watch(searchProductProvider(searchdata.toString()));
             return data.when(
               error: (error, stacktrace) {
                 return const Text("Error");
@@ -28,7 +30,7 @@ class AllProducts extends StatelessWidget {
               data: (product) {
                 product.data!.shuffle();
 
-                return GridView.builder(
+                return product.data!.length==0?Text("Data Not found"): GridView.builder(
                     shrinkWrap: true,
                     primary: false,
                     itemCount: product.data!.length,

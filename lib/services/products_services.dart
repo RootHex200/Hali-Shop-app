@@ -17,6 +17,17 @@ class ProductServices {
     }
   }
 
+
+  Future<dynamic> getProductSearchResponse(value) async {
+    try {
+      var response = await Dio().post("${base_url}product/search",data: {"productName":value.toString()});
+      print(response.runtimeType);
+      return returnResponse(response);
+    } catch (e) {
+      return "Error";
+    }
+  }
+
   Future<dynamic> getCategoryResponse() async {
     //http://localhost:5000/api/category
     try {

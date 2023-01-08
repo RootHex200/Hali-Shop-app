@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:monarch_mart/view/android_view/productpage/productcomponent/serach_product.dart';
 import 'package:monarch_mart/view_model/simplehadler/checkVisibility_provider.dart';
 
-import '../../../utils/widgets/all_product.dart';
+import '../homepage/homecomponent/all_product.dart';
 import 'productcomponent/product_filter_sort.dart';
 import 'productcomponent/search_card.dart';
 
@@ -18,7 +19,7 @@ class AndroidProductPage extends StatelessWidget {
             children: const [
               SearchaProduct(),
 
-              Expanded(child: SingleChildScrollView(child: AllProducts()))
+              Expanded(child: SingleChildScrollView(child: SearchProductData()))
             ],
           ),
           Positioned(

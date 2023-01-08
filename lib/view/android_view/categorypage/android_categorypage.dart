@@ -110,9 +110,13 @@ class AndroidCategoryPage extends StatelessWidget {
                                         color: Appcolors.primaryColor
                                             .withOpacity(0.3),
                                         image: DecorationImage(
-                                            image: NetworkImage(category
+                                            image: NetworkImage(
+                                              
+                                              category
                                                 .data![index].image
-                                                .toString()))),
+                                                .toString(),
+                                                scale: 1.0
+                                                ))),
                                   ),
                                   Text(
                                     category.data![index].title.toString(),
