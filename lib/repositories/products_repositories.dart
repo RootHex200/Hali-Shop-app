@@ -1,6 +1,7 @@
 import 'package:monarch_mart/model/add_to_cart_model.dart';
 import 'package:monarch_mart/model/cartmodel.dart';
 import 'package:monarch_mart/model/categorymodel.dart';
+import 'package:monarch_mart/model/home_page_image.dart';
 import 'package:monarch_mart/model/login_user_input.dart';
 import 'package:monarch_mart/model/product_model.dart';
 import 'package:monarch_mart/model/signup_user_input.dart';
@@ -15,6 +16,13 @@ class ProductRepositories {
     var data = ProductModel.fromJson(response);
     return data;
   }
+
+  Future<HomePageImageModel> getHomeimageData() async {
+    final response = await productServices.getHomepageAPiResponse();
+    var data = HomePageImageModel.fromJson(response);
+    return data;
+  }
+
 
   Future<ProductModel> getSearchProduct(value) async {
     final response = await productServices.getProductSearchResponse(value);
@@ -35,13 +43,8 @@ class ProductRepositories {
   }
 
   Future<void> addToCartData(AddToCartModel addToCartModel) async {
-    final response = await productServices.addToCart(addToCartModel);
-    print(response);
-    if (response == 200) {
-      print("Data is added in add to cart");
-    } else {
-      print(response);
-    }
+     await productServices.addToCart(addToCartModel);
+
   }
 
   Future<void> removeCartData(id) async {

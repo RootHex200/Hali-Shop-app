@@ -60,7 +60,7 @@ class _SignupState extends State<Signup> {
                         height: 100,
                         width: 100,
                         image: AssetImage(
-                            "assets/images/monarch_mart_no_bg_logo.png")),
+                            "assets/images/monarch_mart.png")),
                   ),
 
                   // this is backbutton
@@ -280,29 +280,13 @@ class _SignupState extends State<Signup> {
                               pincode: "pincode");
                           ref
                               .read(authProvider.notifier)
-                              .userSignup(signupUserInput);
+                              .userSignup(signupUserInput,context);
 
                           namecontroller.text = "";
                           emialcontroller.text = "";
                           passwordcontroller.text = "";
                           phonecontroller.text = "";
                           confimcontroller.text = "";
-                          Future.delayed(const Duration(seconds: 1), () {
-                            print(
-                                "${ref.watch(authProvider).success} data is here");
-                            if (ref.watch(authProvider).success == true) {
-                              Fluttertoast.showToast(
-                                  msg: "Sign up successfully");
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const AndroidMainPage()),
-                                  (route) => false);
-                            } else {
-                              Fluttertoast.showToast(msg: "User already exist");
-                            }
-                          });
                         } else {
                           Fluttertoast.showToast(msg: "password not match");
                         }

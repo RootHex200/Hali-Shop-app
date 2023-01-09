@@ -107,8 +107,6 @@ class AndroidCategoryPage extends StatelessWidget {
                                   Container(
                                     height: 70,
                                     decoration: BoxDecoration(
-                                        color: Appcolors.primaryColor
-                                            .withOpacity(0.3),
                                         image: DecorationImage(
                                             image: NetworkImage(
                                               

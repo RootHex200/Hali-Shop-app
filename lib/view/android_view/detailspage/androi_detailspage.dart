@@ -3,6 +3,7 @@ import 'package:monarch_mart/model/add_to_cart_model.dart';
 import 'package:monarch_mart/model/product_model.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
+import 'package:monarch_mart/view/android_view/cardpage/android_card_page.dart';
 import 'package:monarch_mart/view/android_view/detailspage/detailscomponent/add_to_cart_buy_now.dart';
 import 'package:monarch_mart/view/android_view/detailspage/detailscomponent/brand_sku_size.dart';
 import 'package:monarch_mart/view/android_view/detailspage/detailscomponent/product_view_image.dart';
@@ -23,20 +24,22 @@ class AndroidDetailsPage extends StatelessWidget {
             Icons.arrow_back_ios,
             color: Colors.black,
           ),
-          actions: const [
-            Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Icon(
-                  Icons.shopping_cart_outlined,
-                  color: Appcolors.primaryColor,
-                )),
-            HorizontalSpacer(width: 10),
-            Padding(
-                padding: EdgeInsets.only(right: 20),
-                child: Icon(
-                  Icons.favorite_outline,
-                  color: Appcolors.primaryColor,
-                ))
+          actions: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AndroidCardPage()));
+              },
+              child: const Padding(
+                  padding: EdgeInsets.only(left: 20),
+                  child: Icon(
+                    Icons.shopping_cart_outlined,
+                    color: Appcolors.primaryColor,
+                  )),
+            ),
+            const HorizontalSpacer(width: 10),
           ],
         ),
         body: Column(

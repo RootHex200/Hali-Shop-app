@@ -6,7 +6,6 @@ import 'package:monarch_mart/view/android_view/homepage/homecomponent/all_produc
 import 'package:monarch_mart/view/android_view/homepage/homecomponent/carousel.dart';
 import 'package:monarch_mart/view/android_view/homepage/homecomponent/discount_banner.dart';
 import 'package:monarch_mart/view/android_view/homepage/homecomponent/option_list.dart';
-import 'package:monarch_mart/view/android_view/homepage/homecomponent/product_list_horizontaly.dart';
 import 'package:monarch_mart/view/android_view/homepage/homecomponent/search_filed.dart';
 import 'package:monarch_mart/view/android_view/homepage/homecomponent/top_category_list.dart';
 
@@ -39,19 +38,6 @@ class AndroidHomePage extends StatelessWidget {
               //Discount banner
               DiscountBanner(),
               VerticalSpacer(height: 20),
-
-              //Featured Products
-              Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Text(
-                    "Featured Products",
-                    style: TextStyle(color: Appcolors.primaryColor),
-                  )),
-              VerticalSpacer(height: 20),
-
-              //product horizontally
-              ProdcutListHorizontaly(),
-
               //on sale products
               Padding(
                   padding: EdgeInsets.only(left: 20),
@@ -59,8 +45,6 @@ class AndroidHomePage extends StatelessWidget {
                     "On sale Products",
                     style: TextStyle(color: Appcolors.primaryColor),
                   )),
-              VerticalSpacer(height: 20),
-              ProdcutListHorizontaly(),
 
               AllProducts()
             ],

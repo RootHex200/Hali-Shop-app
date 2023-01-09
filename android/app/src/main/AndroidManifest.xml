@@ -3,9 +3,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="monarch_mart"
+        android:label="Hali Shop"
         android:name="${applicationName}"
-        android:icon="@mipmap/monarch_mart_logo">
+        android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAXkMNWAh9LTF9K9dZx_gubQ_Vvc7fEJTQ"/>
         <activity

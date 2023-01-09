@@ -7,19 +7,17 @@ class CartModel {
 
   CartModel.fromJson(Map<String, dynamic> json) {
     success = json['success'];
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
     total = json['total'];
   }
 
-
-
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['success'] = success;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
-    data['total'] = this.total;
+    data['total'] = total;
     return data;
   }
 }
@@ -38,7 +36,7 @@ class Data {
     if (json['items'] != null) {
       items = <Items>[];
       json['items'].forEach((v) {
-        items!.add(new Items.fromJson(v));
+        items!.add(Items.fromJson(v));
       });
     }
     cartid = json['cartid'];
@@ -47,13 +45,13 @@ class Data {
   //total amount of product
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['userid'] = this.userid;
-    if (this.items != null) {
-      data['items'] = this.items!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['userid'] = userid;
+    if (items != null) {
+      data['items'] = items!.map((v) => v.toJson()).toList();
     }
-    data['cartid'] = this.cartid;
+    data['cartid'] = cartid;
     return data;
   }
 }
@@ -90,15 +88,15 @@ class Items {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['cartid'] = this.cartid;
-    data['title'] = this.title;
-    data['image'] = this.image;
-    data['price'] = this.price;
-    data['quantity'] = this.quantity;
-    data['cartitemid'] = this.cartitemid;
-    data['addedon'] = this.addedon;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['cartid'] = cartid;
+    data['title'] = title;
+    data['image'] = image;
+    data['price'] = price;
+    data['quantity'] = quantity;
+    data['cartitemid'] = cartitemid;
+    data['addedon'] = addedon;
     return data;
   }
 }

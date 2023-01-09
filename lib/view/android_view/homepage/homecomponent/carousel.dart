@@ -14,10 +14,8 @@ class CarouselSlider extends StatelessWidget {
         height: 150.h,
         child: Carousel(
           images: const [
-            NetworkImage(
-                'https://cdn-images-1.medium.com/max/2000/1*GqdzzfB_BHorv7V2NV7Jgg.jpeg'),
-            NetworkImage(
-                'https://cdn-images-1.medium.com/max/2000/1*wnIEgP1gNMrK5gZU7QS0-A.jpeg'),
+            AssetImage("assets/images/head1.png"),
+AssetImage("assets/images/head2.jpg"),
           ],
           borderRadius: true,
           dotBgColor: Colors.transparent,

@@ -24,14 +24,14 @@ class AllProducts extends StatelessWidget {
               error: (error, stacktrace) {
                 return const Text("Error");
               },
-              loading: () => const CircularProgressIndicator(),
+              loading: () => const Center(child: CircularProgressIndicator()),
               data: (product) {
                 product.data!.shuffle();
 
                 return GridView.builder(
                     shrinkWrap: true,
                     primary: false,
-                    itemCount: product.data!.length,
+                    itemCount: 5,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         mainAxisSpacing: 10,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:monarch_mart/services/location_page.dart';
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/string.dart';
 import 'package:monarch_mart/utils/widgets/drawer.dart';
@@ -44,26 +43,16 @@ class AndroidProfilePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LocationPage()));
-              },
-              child: const Text("location"),
-            ),
-
-            const ProfileView(),
-            const VerticalSpacer(height: 10),
+          children: const [
+            ProfileView(),
+            VerticalSpacer(height: 10),
 
             //Setting option
-            const SettingOption(),
+            SettingOption(),
 
             //more settings text
 
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
                 AppString.moreSettings,
@@ -72,7 +61,7 @@ class AndroidProfilePage extends StatelessWidget {
             ),
 
             //more settings listtile
-            const ProfileMoreSettings(),
+            ProfileMoreSettings(),
           ],
         ),
       ),

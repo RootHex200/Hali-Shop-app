@@ -41,18 +41,6 @@ class _LoginWithUserIDState extends State<LoginWithUserID> {
       child: Scaffold(
         body: Stack(children: [
           // this is for back button
-          Positioned(
-            top: 10,
-            left: 10,
-            child: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: Appcolors.primaryColor,
-                )),
-          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -62,8 +50,7 @@ class _LoginWithUserIDState extends State<LoginWithUserID> {
                 const Image(
                     height: 100,
                     width: 100,
-                    image: AssetImage(
-                        "assets/images/monarch_mart_no_bg_logo.png")),
+                    image: AssetImage("assets/images/monarch_mart.png")),
                 // this is Textfeild  for email
                 TextField(
                   controller: emailcontroller,
@@ -132,24 +119,9 @@ class _LoginWithUserIDState extends State<LoginWithUserID> {
                             email: emailcontroller.text.toString(),
                             password: passwordcontroller.text.toString());
 
-                        ref.read(authProvider.notifier).userSignin(data);
+                        ref.read(authProvider.notifier).userSignin(data,context);
                         emailcontroller.text = "";
                         passwordcontroller.text = "";
-                        Future.delayed(const Duration(seconds: 1), () {
-                          print(
-                              "${ref.watch(authProvider).success} data is here");
-                          if (ref.watch(authProvider).success == true) {
-                            Fluttertoast.showToast(msg: "Login successfully");
-                            Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const AndroidMainPage()),
-                                (route) => false);
-                          } else {
-                            Fluttertoast.showToast(msg: "User not found");
-                          }
-                        });
                       }
                     },
                     color: Appcolors.primaryColor,
@@ -163,10 +135,10 @@ class _LoginWithUserIDState extends State<LoginWithUserID> {
                 const VerticalSpacer(height: 10),
                 ElevatedButtonAuth(
                   onTap: () {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (context) => const Signup()),
-                        (route) => false);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Signup()),
+                    );
                   },
                   color: Appcolors.primaryColor,
                   child: const Center(

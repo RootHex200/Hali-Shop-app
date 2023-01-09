@@ -1,4 +1,3 @@
-
 class ProductModel {
   bool? success;
   int? totalProduct;
@@ -12,15 +11,15 @@ class ProductModel {
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(Data.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
-    data['total_product'] = this.totalProduct;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['success'] = success;
+    data['total_product'] = totalProduct;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -64,14 +63,13 @@ class Data {
     sId = json['_id'];
     productid = json['productid'];
     title = json['title'];
-    category = json['category'] != null
-        ? new Category.fromJson(json['category'])
-        : null;
+    category =
+        json['category'] != null ? Category.fromJson(json['category']) : null;
     thumdescription = json['thumdescription'];
     if (json['description'] != null) {
       description = <Description>[];
       json['description'].forEach((v) {
-        description!.add(new Description.fromJson(v));
+        description!.add(Description.fromJson(v));
       });
     }
     price = json['price'];
@@ -83,34 +81,34 @@ class Data {
     if (json['styles'] != null) {
       styles = <Styles>[];
       json['styles'].forEach((v) {
-        styles!.add(new Styles.fromJson(v));
+        styles!.add(Styles.fromJson(v));
       });
     }
     addedon = json['addedon'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['productid'] = this.productid;
-    data['title'] = this.title;
-    if (this.category != null) {
-      data['category'] = this.category!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['productid'] = productid;
+    data['title'] = title;
+    if (category != null) {
+      data['category'] = category!.toJson();
     }
-    data['thumdescription'] = this.thumdescription;
-    if (this.description != null) {
-      data['description'] = this.description!.map((v) => v.toJson()).toList();
+    data['thumdescription'] = thumdescription;
+    if (description != null) {
+      data['description'] = description!.map((v) => v.toJson()).toList();
     }
-    data['price'] = this.price;
-    data['thumimage'] = this.thumimage;
-    data['images'] = this.images;
-    data['rating'] = this.rating;
-    data['stock'] = this.stock;
-    data['discount'] = this.discount;
-    if (this.styles != null) {
-      data['styles'] = this.styles!.map((v) => v.toJson()).toList();
+    data['price'] = price;
+    data['thumimage'] = thumimage;
+    data['images'] = images;
+    data['rating'] = rating;
+    data['stock'] = stock;
+    data['discount'] = discount;
+    if (styles != null) {
+      data['styles'] = styles!.map((v) => v.toJson()).toList();
     }
-    data['addedon'] = this.addedon;
+    data['addedon'] = addedon;
     return data;
   }
 }
@@ -131,11 +129,11 @@ class Category {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['categoryid'] = this.categoryid;
-    data['title'] = this.title;
-    data['addedon'] = this.addedon;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['categoryid'] = categoryid;
+    data['title'] = title;
+    data['addedon'] = addedon;
     return data;
   }
 }
@@ -154,10 +152,10 @@ class Description {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['des1'] = this.des1;
-    data['des2'] = this.des2;
-    data['des'] = this.des;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['des1'] = des1;
+    data['des2'] = des2;
+    data['des'] = des;
     return data;
   }
 }
@@ -180,12 +178,12 @@ class Styles {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['title'] = this.title;
-    data['price'] = this.price;
-    data['images'] = this.images;
-    data['styleid'] = this.styleid;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['title'] = title;
+    data['price'] = price;
+    data['images'] = images;
+    data['styleid'] = styleid;
     return data;
   }
 }

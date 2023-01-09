@@ -12,27 +12,27 @@ class SettingOption extends StatelessWidget {
   Widget build(BuildContext context) {
     final setting = [
       {
-        "icon": "assets/images/mmicon/one.png",
+        "icon": "assets/images/user.png",
         "title": "My Account",
         "subtitle": "Make changes to your account"
       },
       {
-        "icon": "assets/images/mmicon/one.png",
+        "icon": "assets/images/order.png",
         "title": "Order History",
         "subtitle": "Take a look at your Orders"
       },
       {
-        "icon": "assets/images/mmicon/one.png",
+        "icon": "assets/images/address.png",
         "title": "Shipping Address",
         "subtitle": "Change or add your address"
       },
       {
-        "icon": "assets/images/mmicon/one.png",
+        "icon": "assets/images/block-user.png",
         "title": "Delete your Account",
         "subtitle": "Account Delete"
       },
       {
-        "icon": "assets/images/mmicon/one.png",
+        "icon": "assets/images/logout.png",
         "title": "Logout",
         "subtitle": "Laogout form your account"
       }

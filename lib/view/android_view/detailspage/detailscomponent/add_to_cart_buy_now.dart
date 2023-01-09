@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:monarch_mart/model/add_to_cart_model.dart';
 import 'package:monarch_mart/repositories/products_repositories.dart';
-
-import '../../../../utils/colors.dart';
+import 'package:monarch_mart/utils/colors.dart';
 
 class AddToCartAndBuyNow extends StatelessWidget {
   final AddToCartModel addToCartModel;
-  const AddToCartAndBuyNow({super.key,required this.addToCartModel});
+  const AddToCartAndBuyNow({super.key, required this.addToCartModel});
 
   @override
   Widget build(BuildContext context) {

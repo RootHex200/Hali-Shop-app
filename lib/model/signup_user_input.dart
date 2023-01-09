@@ -1,5 +1,3 @@
-
-
 class SignupUserInput {
   String? userid;
   String? fullname;
@@ -13,8 +11,7 @@ class SignupUserInput {
   String? pincode;
 
   SignupUserInput(
-      {
-      required this.userid,
+      {required this.userid,
       required this.fullname,
       required this.email,
       required this.phone,
@@ -39,17 +36,17 @@ class SignupUserInput {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['userid'] = this.userid;
-    data['fullname'] = this.fullname;
-    data['email'] = this.email;
-    data['phone'] = this.phone;
-    data['password'] = this.password;
-    data['gender'] = this.gender;
-    data['address'] = this.address;
-    data['country'] = this.country;
-    data['city'] = this.city;
-    data['pincode'] = this.pincode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['userid'] = userid;
+    data['fullname'] = fullname;
+    data['email'] = email;
+    data['phone'] = phone;
+    data['password'] = password;
+    data['gender'] = gender;
+    data['address'] = address;
+    data['country'] = country;
+    data['city'] = city;
+    data['pincode'] = pincode;
     return data;
   }
 }

@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:monarch_mart/view/android_view/productpage/productcomponent/serach_product.dart';
 import 'package:monarch_mart/view_model/simplehadler/checkVisibility_provider.dart';
-
-import '../homepage/homecomponent/all_product.dart';
-import 'productcomponent/product_filter_sort.dart';
 import 'productcomponent/search_card.dart';
 
 class AndroidProductPage extends StatelessWidget {
@@ -18,7 +15,6 @@ class AndroidProductPage extends StatelessWidget {
           Column(
             children: const [
               SearchaProduct(),
-
               Expanded(child: SingleChildScrollView(child: SearchProductData()))
             ],
           ),
@@ -36,9 +32,8 @@ class AndroidProductPage extends StatelessWidget {
                       height: 200,
                       child: Column(
                         children: [
-                          ElevatedButton(onPressed: (){
-                            
-                          }, child: Text("prize sort"))
+                          ElevatedButton(
+                              onPressed: () {}, child: const Text("prize sort"))
                         ],
                       ),
                     ),

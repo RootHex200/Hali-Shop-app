@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:monarch_mart/utils/colors.dart';
 import 'package:monarch_mart/utils/string.dart';
@@ -64,23 +65,30 @@ class AndroidCardPage extends StatelessWidget {
               ),
               const VerticalSpacer(height: 5),
               Consumer(
-                builder:(context,ref,child) {
+                builder: (context, ref, child) {
                   return GestureDetector(
-                    onTap: (){
-                      if(ref.watch(totalAmoutn)>10){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const Checkout()));
+                    onTap: () {
+                      if (ref.watch(totalAmoutn) > 10) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Checkout()));
+                      }else{
+                        Fluttertoast.showToast(msg: "Increase you Price");
                       }
+                      
                     },
                     child: Container(
-                    height: 50,
-                    decoration: const BoxDecoration(color: Appcolors.primaryColor),
-                    child: const Center(
-                        child: Text(
-                      AppString.proceedToOrder,
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    )),
-                                  ),
+                      height: 50,
+                      decoration:
+                          const BoxDecoration(color: Appcolors.primaryColor),
+                      child: const Center(
+                          child: Text(
+                        AppString.proceedToOrder,
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      )),
+                    ),
                   );
                 },
               ),

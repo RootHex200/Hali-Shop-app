@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:monarch_mart/view_model/apihandler/auth_handler.dart';
 import 'package:monarch_mart/view_model/simplehadler/profile_view.dart';
 import '../../../../utils/colors.dart';
 import '../../../../utils/widgets/spaceer.dart';
@@ -23,12 +22,11 @@ class ProfileView extends StatelessWidget {
           const HorizontalSpacer(width: 10),
           const CircleAvatar(
             radius: 25,
+            child: Icon(Icons.person),
           ),
           const HorizontalSpacer(width: 10),
           Expanded(child: Consumer(
             builder: (context, ref, child) {
-              
-
               final profiledata = ref.watch(profileProvider);
               return Column(
                 mainAxisSize: MainAxisSize.min,

@@ -8,7 +8,7 @@ class ProfileMoreSettings extends StatelessWidget {
   Widget build(BuildContext context) {
     final moreSttingsURL = [
       {
-        "icon": "assets/images/mmicon/one.png",
+        "icon": "assets/images/privacy.png",
         "name": "Privacy Policy",
       },
       {
@@ -16,7 +16,7 @@ class ProfileMoreSettings extends StatelessWidget {
         "name": "Return Policy",
       },
       {
-        "icon": "assets/images/mmicon/one.png",
+        "icon": "assets/images/terms.png",
         "name": "Terms",
       },
     ];

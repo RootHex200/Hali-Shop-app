@@ -8,9 +8,9 @@ final searchProductProvider =
   if (value.isEmpty || value.length==0) {
     return await productRepositories.getProductData();
   }
-  return await productRepositories.getSearchProduct(value);
+  return await productRepositories.getSearchProduct(value.toLowerCase());
 });
 
-final searchUservalueProvider = StateProvider<String>((ref) {
+final searchUservalueProvider = StateProvider.autoDispose<String>((ref) {
   return "";
 });

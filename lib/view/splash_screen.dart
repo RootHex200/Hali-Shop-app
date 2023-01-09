@@ -3,6 +3,7 @@ import 'package:monarch_mart/utils/db.dart';
 import 'package:monarch_mart/utils/widgets/spaceer.dart';
 import 'dart:async';
 import 'package:monarch_mart/view/android_view/android_main_page.dart';
+import 'package:monarch_mart/view/android_view/profilepage/login/login_with_user_id.dart';
 import 'package:monarch_mart/view/android_view/profilepage/login/signup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -118,7 +119,7 @@ class SplashScreen extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const AndroidMainPage()));
       } else {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const Signup()));
+            MaterialPageRoute(builder: (context) => const LoginWithUserID()));
       }
     });
 
@@ -138,7 +139,7 @@ class SplashScreen extends StatelessWidget {
                   height: 100,
                   width: 100,
                   image:
-                      AssetImage("assets/images/monarch_mart_no_bg_logo.png")),
+                      AssetImage("assets/images/monarch_mart.png")),
             ),
             Expanded(child: Container()),
             Column(
