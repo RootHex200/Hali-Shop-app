@@ -8,7 +8,7 @@
 
 
 
-## **Food Station**
+## **Hali Shop**
   <p align="center">
     Hali shop is another practice app. this app like e-commerce type. <br>I have learn more things from this project
     <br />
